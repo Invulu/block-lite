@@ -7,10 +7,10 @@
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.0
+	Version: 1.0.1
 	Text Domain: block-lite
 	Domain Path: /languages/
-	Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
+	Tags: blog, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 
 	The CSS, XHTML and Design are released under the GPL:
 	http://www.opensource.org/licenses/gpl-license.php
@@ -369,6 +369,9 @@ h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 0px;
+}
+.category .header-content {
+	margin-top: 48px;
 }
 .wp-custom-header {
 	width: 100%;

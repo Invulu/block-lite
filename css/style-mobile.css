@@ -110,6 +110,9 @@
 	button.menu-toggle:hover svg {
 		fill: rgba(0, 0, 0, 1);
 	}
+	.admin-bar .sidr {
+		top: 32px;
+	}
 	.sidr {
 		display: block;
 		position: fixed;
@@ -217,12 +220,7 @@
 	.content {
 		padding: 0px 36px;
 	}
-	.post-holder,
-	.home .post-holder:first-child,
-	.home .post-holder:nth-child(2),
-	.home .post-holder:nth-child(3),
-	.home .post-holder:nth-child(4),
-	.home .post-holder:nth-child(5) {
+	.post-holder {
 		float: none;
 		width: 100vw;
 		height: 100vw;

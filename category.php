@@ -15,7 +15,7 @@ get_header(); ?>
 	<div class="row">
 
 		<!-- BEGIN .block-post-layout -->
-		<section class="block-post-layout clearfix">
+		<section id="infinite-container" class="block-post-layout clearfix">
 
 			<?php get_template_part( 'content/loop', 'archive' ); ?>
 

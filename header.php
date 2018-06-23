@@ -105,7 +105,7 @@
 					<?php } ?>
 
 					<?php if ( have_posts() && is_category() ) { ?>
-						<h4 class="text-center"><?php the_archive_title(); ?></h4>
+						<h1 class="text-center"><?php the_archive_title(); ?></h1>
 					<?php } ?>
 
 				</div>

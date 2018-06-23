@@ -15,53 +15,13 @@ get_header(); ?>
 	<!-- BEGIN .row -->
 	<div class="row">
 
-		<!-- BEGIN .content -->
-		<div class="content">
+		<!-- BEGIN .block-post-layout -->
+		<section id="infinite-container" class="block-post-layout clearfix">
 
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
+			<?php get_template_part( 'content/loop', 'archive' ); ?>
 
-			<!-- BEGIN .eleven columns -->
-			<section class="eleven columns">
-
-				<!-- BEGIN #infinite-container -->
-				<div id="infinite-container">
-
-					<?php get_template_part( 'content/loop', 'archive' ); ?>
-
-				<!-- END #infinite-container -->
-				</div>
-
-			<!-- END .eleven columns -->
-			</section>
-
-			<!-- BEGIN .five columns -->
-			<section class="five columns">
-
-				<?php get_sidebar(); ?>
-
-			<!-- END .five columns -->
-			</section>
-
-		<?php } else { ?>
-
-			<!-- BEGIN .sixteen columns -->
-			<section class="sixteen columns">
-
-				<!-- BEGIN #infinite-containerr -->
-				<div id="infinite-container">
-
-					<?php get_template_part( 'content/loop', 'archive' ); ?>
-
-				<!-- END #infinite-container -->
-				</div>
-
-			<!-- END .sixteen columns -->
-			</section>
-
-		<?php } ?>
-
-		<!-- END .content -->
-		</div>
+		<!-- END .block-post-layout -->
+		</section>
 
 	<!-- END .row -->
 	</div>

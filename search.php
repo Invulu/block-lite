@@ -16,40 +16,18 @@ get_header(); ?>
 	<!-- BEGIN .row -->
 	<div class="row">
 
-		<!-- BEGIN .content -->
-		<div class="content">
+		<!-- BEGIN .row -->
+		<div class="row">
 
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
-
-			<!-- BEGIN .eleven columns -->
-			<section class="eleven columns">
+			<!-- BEGIN .block-post-layout -->
+			<section id="infinite-container" class="block-post-layout clearfix">
 
 				<?php get_template_part( 'content/loop', 'archive' ); ?>
 
-			<!-- END .eleven columns -->
+			<!-- END .block-post-layout -->
 			</section>
 
-			<!-- BEGIN .five columns -->
-			<section class="five columns">
-
-				<?php get_sidebar(); ?>
-
-			<!-- END .five columns -->
-			</section>
-
-		<?php } else { ?>
-
-			<!-- BEGIN .sixteen columns -->
-			<section class="sixteen columns">
-
-				<?php get_template_part( 'content/loop', 'archive' ); ?>
-
-			<!-- END .sixteen columns -->
-			</section>
-
-		<?php } ?>
-
-		<!-- END .content -->
+		<!-- END .row -->
 		</div>
 
 	<!-- END .row -->

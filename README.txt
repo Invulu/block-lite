@@ -1,6 +1,6 @@
 === Block Lite ===
 
-Version: 1.0
+Version: 1.0.1
 Contributors: organicthemes, itsdavidmorgan
 Tags: blog, portfolio, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 Requires at least: 4.8
@@ -44,6 +44,13 @@ Block Lite is distributed under the terms of the GNU GPL
 * jquery.fitvids.js, Released under the WTFPL license, http://sam.zoy.org/wtfpl/.
 
 == Changelog ==
+
+== 1.0.1 ==
+* Removed accessibility tag
+* Fixed PHP error in loop-post.php
+* Fixed issue of mobile menu overlapping admin bar
+* Fixed layout issues on archive pages
+* Minor style tweaks
 
 == 1.0 ==
 * Initial build

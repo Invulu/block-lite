@@ -285,9 +285,6 @@
 .block-header-inactive #custom-header {
 	max-height: 100vh;
 }
-/* .home.block-header-inactive #custom-header {
-	height: calc(100vh - 90px);
-} */
 .block-header-inactive #masthead {
 	margin-top: -60px;
 }
