@@ -371,7 +371,7 @@ add_filter( 'excerpt_more', 'block_lite_excerpt_more' );
  * @return string
  */
 function block_lite_more_link($more_link, $more_link_text) {
-	return '<p><a class="more-link" href="' . get_permalink() . '">' . $more_link_text .'</a></p>';
+	return '<p><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . $more_link_text .'</a></p>';
 }
 add_filter('the_content_more_link', 'block_lite_more_link', 10, 2);
 

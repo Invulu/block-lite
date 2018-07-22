@@ -32,7 +32,7 @@ Block Lite is distributed under the terms of the GNU GPL
 * close.svg: Created by David Morgan, http://dav.idmorgan.com. License: GPLv2.
 * menu.png: Created by David Morgan, http://dav.idmorgan.com. License: GPLv2.
 * screenshot.png: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-* default-header.jpg: Source: Unsplash, https://unsplash.com. Licensed under Creative Commons Zero license, https://unsplash.com/license.
+* default-header.jpg: Source: Pixabay, https://pixabay.com/en/skyscraper-dark-sky-dark-1149541/. Licensed under Creative Commons Zero license, https://pixabay.com/en/service/terms/.
 
 == Font Awesome ==
 
@@ -42,6 +42,7 @@ Block Lite is distributed under the terms of the GNU GPL
 == Scripts ==
 
 * jquery.fitvids.js, Released under the WTFPL license, http://sam.zoy.org/wtfpl/.
+* jquery.bgBrightness.js, Released under the WTFPL license, https://organicthemes.com
 
 == Changelog ==
 

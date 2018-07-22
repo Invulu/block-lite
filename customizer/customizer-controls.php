@@ -7,7 +7,7 @@
  */
 
 /** Category Dropdown Control */
-class Organic_Block_Category_Dropdown_Control extends WP_Customize_Control {
+class Block_Lite_Category_Dropdown_Control extends WP_Customize_Control {
 
 	/**
 	 * Define dropdown categories.

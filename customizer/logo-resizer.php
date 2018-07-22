@@ -138,4 +138,3 @@ function block_lite_logo_remove_theme_mod() {
 		set_theme_mod( 'logo_size', '' );
 	}
 }
-add_action( 'wp_loaded', 'block_lite_logo_remove_theme_mod' );

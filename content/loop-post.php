@@ -75,7 +75,7 @@
 		<!-- END .post-information -->
 		</div>
 
-		<?php if ( ! empty( get_next_post( true ) ) ) { ?>
+		<?php if ( ! get_next_post( true ) ) { ?>
 		<div class="post-navigation">
 			<div class="next-post" style="background-image: url(<?php echo esc_url( $nextThumb ); ?>);">
 				<span class="nav-label"><i class="fa fa-angle-right"></i></span>
