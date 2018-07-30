@@ -70,6 +70,9 @@ Block Lite is distributed under the terms of the GNU GPL
 * Fixed PHP object issue in loop-post.php
 * Fixed incorrect prefix issues
 * Added indication of multiple menu levels in mobile navigation
+* Removed sidebar files and styles
+* Removed layout checkbox options
+* Added blog category option
 * Updated image credit formatting
 
 == 1.0.2 ==

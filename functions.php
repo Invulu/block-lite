@@ -174,14 +174,6 @@ if ( ! function_exists( 'block_lite_widgets_init' ) ) :
 /** Function block_lite_widgets_init */
 function block_lite_widgets_init() {
 	register_sidebar(array(
-		'name' => esc_html__( 'Default Sidebar', 'block-lite' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-	register_sidebar(array(
 		'name' => esc_html__( 'Home Bottom', 'block-lite' ),
 		'id' => 'home-bottom',
 		'before_widget' => '<aside id="%1$s" class="organic-widget %2$s">',
@@ -534,16 +526,6 @@ function block_lite_body_class( $classes ) {
 
 	if ( is_singular() ) {
 		$classes[] = 'block-singular';
-	}
-
-	if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'block-sidebar-1';
-	}
-
-	if ( is_active_sidebar( 'sidebar-1' ) && ! is_page_template( 'template-full.php' ) && ( class_exists( 'Woocommerce' ) && ! is_woocommerce() ) || class_exists( 'Woocommerce' ) && is_woocommerce() && is_active_sidebar( 'shop-sidebar' ) ) {
-		$classes[] = 'block-sidebar-active';
-	} else {
-		$classes[] = 'block-sidebar-inactive';
 	}
 
 	if ( '' != get_theme_mod( 'background_image' ) ) {

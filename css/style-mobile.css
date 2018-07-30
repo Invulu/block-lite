@@ -267,10 +267,6 @@
 	.footer-widgets .widget:last-child {
 		margin-bottom: 12px;
 	}
-	.block-sidebar-inactive .alignwide {
-		width: calc(100% + 72px);
-		left: -36px;
-	}
 	.footer-widgets {
 		display: block;
 		width: 100%;

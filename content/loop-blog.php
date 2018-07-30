@@ -8,7 +8,26 @@
 
 ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php $blog_query['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; ?>
+
+<?php $blog_cats = get_theme_mod( 'block_lite_blog_category', '0' ); ?>
+<?php if ( is_array( $blog_cats ) && ! empty( $blog_cats ) ) { $categories = implode( ',', $blog_cats ); } ?>
+
+<?php
+	$blog_query = new WP_Query( array(
+		'cat' 							=> $categories,
+		'paged' 						=> $paged,
+		'suppress_filters'	=> 0,
+	) );
+?>
+
+<?php if ( $blog_query->have_posts() ) : while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+
+	<?php
+		$temp_query = $wp_query;
+		$wp_query   = NULL;
+		$wp_query   = $blog_query;
+	?>
 
 	<?php $thumb = ( '' != get_the_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'block-featured-medium' ) : false; ?>
 
@@ -37,11 +56,11 @@
 
 <?php endwhile; ?>
 
-	<?php if ( $wp_query->max_num_pages > 1 ) { ?>
+	<?php if ( $blog_query->max_num_pages > 1 ) { ?>
 
 		<div class="pagination">
 			<div class="nav-links">
-				<?php previous_posts_link( '<i class="fa fa-angle-left" aria-hidden="true"></i>' ); ?>
+				<?php previous_posts_link( '<i class="fa fa-angle-left" aria-hidden="true"></i>', '' ); ?>
 				<?php next_posts_link( '<i class="fa fa-angle-right" aria-hidden="true"></i>', '' ); ?>
 			</div>
 		</div>

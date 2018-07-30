@@ -17,7 +17,7 @@
 	<header class="row" role="banner">
 
 		<div class="featured-img banner-img" style="background-image: url(<?php echo esc_url( $thumb[0] ); ?>);">
-			<?php if ( is_page() && '1' == get_theme_mod( 'display_img_title_page', '1' ) || is_single() && '1' == get_theme_mod( 'display_img_title_post', '1' ) ) { ?>
+			<?php if ( is_page() || is_single() ) { ?>
 				<div class="img-title">
 					<?php if ( is_single() ) { ?>
 						<p class="post-author"><?php block_lite_posted_on_no_link(); ?> <em><?php esc_html_e( 'by', 'block-lite' ); ?></em> <?php the_post(); echo get_the_author(); rewind_posts(); ?></p>

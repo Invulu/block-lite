@@ -13,7 +13,7 @@
 	<!-- BEGIN .entry-content -->
 	<article class="entry-content">
 
-		<?php if ( ! has_post_thumbnail() || '' == get_theme_mod( 'display_img_title_post', '1' )  ) { ?>
+		<?php if ( ! has_post_thumbnail() ) { ?>
 			<h1 class="entry-header"><?php the_title(); ?></h1>
 		<?php } ?>
 

@@ -161,66 +161,28 @@ function block_lite_theme_customizer( $wp_customize ) {
 
 		/*
 		-------------------------------------------------------------------------------------------------------
-			Layout Options
+			Page Templates Section
 		-------------------------------------------------------------------------------------------------------
 		*/
 
-		$wp_customize->add_section( 'block_lite_layout_section' , array(
-			'title'			=> esc_html__( 'Layout', 'block-lite' ),
-			'description' => esc_html__( 'Toggle the display and layout of various elements throughout the theme.', 'block-lite' ),
-			'priority'	=> 104,
+		$wp_customize->add_section( 'block_lite_templates_section' , array(
+			'title'			=> esc_html__( 'Blog Options', 'block-lite' ),
+			'priority'	=> 100,
 			'panel'			=> 'block_lite_theme_options',
 		) );
 
-		// Display Post Image Title Overlay.
-		$wp_customize->add_setting( 'display_img_title_post', array(
-			'default'						=> '1',
-			'sanitize_callback'	=> 'block_lite_sanitize_checkbox',
+		// Blog Categories.
+		$wp_customize->add_setting( 'block_lite_blog_category', array(
+			'default' => '0',
+			'sanitize_callback' => 'block_lite_sanitize_multi_select',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'display_img_title_post', array(
-			'label'			=> esc_html__( 'Overlay Post Title On Featured Image?', 'block-lite' ),
-			'section'		=> 'block_lite_layout_section',
-			'settings'	=> 'display_img_title_post',
-			'type'			=> 'checkbox',
-			'priority'	=> 80,
-		) ) );
-
-		// Display Page Image Title Overlay.
-		$wp_customize->add_setting( 'display_img_title_page', array(
-			'default'						=> '1',
-			'sanitize_callback'	=> 'block_lite_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'display_img_title_page', array(
-			'label'			=> esc_html__( 'Overlay Page Title On Featured Image?', 'block-lite' ),
-			'section'		=> 'block_lite_layout_section',
-			'settings'	=> 'display_img_title_page',
-			'type'			=> 'checkbox',
-			'priority'	=> 100,
-		) ) );
-
-		/*
-		-------------------------------------------------------------------------------------------------------
-			Footer Section
-		-------------------------------------------------------------------------------------------------------
-		*/
-
-		$wp_customize->add_section( 'block_lite_footer_section' , array(
-			'title'				=> esc_html__( 'Footer', 'block-lite' ),
-			'description' => esc_html__( 'Replace the footer text. The footer social media links can be added by creating a Social Menu in the Menus section.', 'block-lite' ),
-			'priority'		=> 120,
-		) );
-
-		// Footer Text.
-		$wp_customize->add_setting( 'block_lite_footer_text', array(
-			'sanitize_callback'	=> 'sanitize_text_field',
-			'transport'					=> 'postMessage',
-		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'block_lite_footer_text', array(
-			'label'			=> esc_html__( 'Footer Text', 'block-lite' ),
-			'section'		=> 'block_lite_footer_section',
-			'settings'	=> 'block_lite_footer_text',
-			'type'			=> 'text',
-			'priority'	=> 10,
+		$wp_customize->add_control( new Block_Lite_Multiple_Select_Control( $wp_customize, 'multiple_select_setting',
+		array(
+			'settings' => 'block_lite_blog_category',
+			'label'    => 'Select Blog Categories',
+			'section'  => 'block_lite_templates_section',
+			'type'     => 'multiple-select',
+			'choices'  => block_lite_blog_categories(),
 		) ) );
 
 }
