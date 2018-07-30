@@ -38,15 +38,25 @@
 	<!-- BEGIN .post-meta -->
 	<div class="post-meta">
 
-		<?php $prevPost = get_previous_post( true ); $prevThumb = get_the_post_thumbnail_url($prevPost->ID); ?>
-		<?php $nextPost = get_next_post( true ); $nextThumb = get_the_post_thumbnail_url($nextPost->ID); ?>
+		<?php
+		$prevPost = get_previous_post(true);
+		if ( is_object( $prevPost ) ) {
+			$prevThumb = get_the_post_thumbnail_url( $prevPost->ID, array(600, 600) );
+		}
+		$nextPost = get_next_post(true);
+		if ( is_object( $nextPost ) ) {
+			$nextThumb = get_the_post_thumbnail_url( $nextPost->ID, array(600, 600) );
+		}
+		?>
 
+		<?php if ( get_previous_post( true ) ) { ?>
 		<div class="post-navigation">
 			<div class="previous-post" style="background-image: url(<?php echo esc_url( $prevThumb ); ?>);">
 				<span class="nav-label"><i class="fa fa-angle-left"></i></span>
 				<?php previous_post_link( '%link', '%title', true ); ?>
 			</div>
 		</div>
+		<?php } ?>
 
 		<!-- BEGIN .post-information -->
 		<div class="post-information text-center">
@@ -75,7 +85,7 @@
 		<!-- END .post-information -->
 		</div>
 
-		<?php if ( ! get_next_post( true ) ) { ?>
+		<?php if ( get_next_post( true ) ) { ?>
 		<div class="post-navigation">
 			<div class="next-post" style="background-image: url(<?php echo esc_url( $nextThumb ); ?>);">
 				<span class="nav-label"><i class="fa fa-angle-right"></i></span>

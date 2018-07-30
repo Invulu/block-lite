@@ -19,26 +19,6 @@ get_header(); ?>
 		<!-- BEGIN .content -->
 		<div class="content">
 
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
-
-			<!-- BEGIN .eleven columns -->
-			<section class="eleven columns">
-
-				<?php get_template_part( 'content/loop', 'page' ); ?>
-
-			<!-- END .eleven columns -->
-			</section>
-
-			<!-- BEGIN .five columns -->
-			<section class="five columns">
-
-				<?php get_sidebar(); ?>
-
-			<!-- END .five columns -->
-			</section>
-
-		<?php } else { ?>
-
 			<!-- BEGIN .sixteen columns -->
 			<section class="sixteen columns">
 
@@ -46,8 +26,6 @@ get_header(); ?>
 
 			<!-- END .sixteen columns -->
 			</section>
-
-		<?php } ?>
 
 		<!-- END .content -->
 		</div>

@@ -7,7 +7,7 @@
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.0.2
+	Version: 1.0.3
 	Text Domain: block-lite
 	Domain Path: /languages/
 	Tags: blog, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
@@ -74,6 +74,7 @@ body.wp-autoresize {
 ************************************************/
 
 p {
+	word-wrap: break-word;
 	padding: 16px 0px;
 	margin: 0px;
 }
@@ -575,12 +576,16 @@ div.menu ul ul li {
 	opacity: 1;
 }
 ul.menu li:hover li ul,
-div.menu ul li:hover li ul {
+div.menu ul li:hover li ul,
+ul.menu li:hover li ul ul,
+div.menu ul li:hover li ul ul {
 	top: -9999px;
 	opacity: 1;
 }
 ul.menu li li:hover ul,
-ul.menu li li[aria-expanded="true"] ul {
+ul.menu li li[aria-expanded="true"] ul,
+ul.menu li li ul li:hover ul,
+ul.menu li li ul li[aria-expanded="true"] ul {
 	left: 240px; /* match ul width */
 	top: 0;
 	opacity: 1;
@@ -601,10 +606,13 @@ ul.menu li li[aria-expanded="true"] ul {
 }
 .menu ul.sub-menu ul.sub-menu,
 .menu ul.children ul.children {
+	margin-top: -4px;
 	transition-delay: 0s;
 	-webkit-transition-delay: 0s; /* Safari */
 }
-.menu a {
+.menu a,
+.menu a:link,
+.menu a:visited {
 	color: #999999;
 	color: rgba(0, 0, 0, 0.4);
 	background: none;
@@ -1265,7 +1273,7 @@ body.block-landing-page {
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	max-height: 100vh;
+	max-height: 640px;
 	position: relative;
 	background-position: center center;
 	-webkit-background-size: cover;

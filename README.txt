@@ -1,6 +1,6 @@
 === Block Lite ===
 
-Version: 1.0.1
+Version: 1.0.3
 Contributors: organicthemes, itsdavidmorgan
 Tags: blog, portfolio, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 Requires at least: 4.8
@@ -27,12 +27,29 @@ Block Lite is distributed under the terms of the GNU GPL
 
 == Images ==
 
-* logo.png: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-* logo.psd: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-* close.svg: Created by David Morgan, http://dav.idmorgan.com. License: GPLv2.
-* menu.png: Created by David Morgan, http://dav.idmorgan.com. License: GPLv2.
-* screenshot.png: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-* default-header.jpg: Source: Pixabay, https://pixabay.com/en/skyscraper-dark-sky-dark-1149541/. Licensed under Creative Commons Zero license, https://pixabay.com/en/service/terms/.
+* Logo Image, Copyright David Morgan, http://dav.idmorgan.com
+* License: GPLv2
+* Source: images/logo.png
+
+* Logo Design File, Copyright David Morgan, http://dav.idmorgan.com
+* License: GPLv2
+* Source: images/logo.psd
+
+* Close Icon, Copyright David Morgan, http://dav.idmorgan.com
+* License: GPLv2
+* Source: images/close.svg
+
+* Menu Icon, Copyright David Morgan, http://dav.idmorgan.com
+* License: GPLv2
+* Source: images/menu.svg
+
+* Screenshot, Copyright David Morgan, http://dav.idmorgan.com
+* License: GPLv2
+* Source: images/screenshot.png
+
+* Header Image, Copyright Free-Photos, https://pixabay.com/en/users/Free-Photos-242387/
+* License: Creative Commons Zero, https://pixabay.com/en/service/terms/
+* Source: Pixabay, https://pixabay.com/en/skyscraper-dark-sky-dark-1149541/
 
 == Font Awesome ==
 
@@ -45,6 +62,18 @@ Block Lite is distributed under the terms of the GNU GPL
 * jquery.bgBrightness.js, Released under the WTFPL license, https://organicthemes.com
 
 == Changelog ==
+
+== 1.0.3 ==
+* WP.org review fixes
+* Fixed menu if navigating 3 levels deep near edge of browser window
+* Added word break to paragraphs
+* Fixed PHP object issue in loop-post.php
+* Fixed incorrect prefix issues
+* Added indication of multiple menu levels in mobile navigation
+* Updated image credit formatting
+
+== 1.0.2 ==
+* WP.org review fixes
 
 == 1.0.1 ==
 * Removed accessibility tag

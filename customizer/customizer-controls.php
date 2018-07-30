@@ -40,7 +40,7 @@ class Block_Lite_Category_Dropdown_Control extends WP_Customize_Control {
 	}
 }
 
-class Organic_Block_Multiple_Select_Control extends WP_Customize_Control {
+class Block_Lite_Multiple_Select_Control extends WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.

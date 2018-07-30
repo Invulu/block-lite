@@ -1,4 +1,4 @@
-( function( $ ) {
+(function($) {
 
 	'use strict';
 
@@ -26,7 +26,7 @@
 	/* Submenu Offset Fix ---------------------*/
 	function menuOffset() {
 		// Fix menu if off screen.
-		var mainWindowWidth = $(window).width() + 180;
+		var mainWindowWidth = $(window).width();
 
 		$('#navigation ul.menu li.menu-item-has-children').mouseover(function() {
 
@@ -44,8 +44,11 @@
 						right: 0,
 						left: 'auto',
 					});
+				}
+				if ( (subMenuOffset + subMenuWidth + subMenuWidth) > mainWindowWidth ) {
+					var newSubMenuPosition = subMenuWidth;
 					$(this).find('ul.sub-menu ul.sub-menu').css({
-						left: -newSubMenuPosition - 24,
+						left: -newSubMenuPosition - 6,
 						right: 'auto',
 					});
 				}
@@ -123,6 +126,7 @@
 	.on( 'post-load', modifyPosts );
 
 	$( window )
-	.load( headerSetup );
+	.load( headerSetup )
+	.resize( menuOffset );
 
 })( jQuery );
