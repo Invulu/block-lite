@@ -16,25 +16,24 @@ if ( ! function_exists( 'block_lite_setup' ) ) :
 
 	/** Function block_lite_setup */
 	function block_lite_setup() {
-
 		/*
-		* Enable support for translation.
-		*/
+		 * Enable support for translation.
+		 */
 		load_theme_textdomain( 'block-lite', get_template_directory() . '/languages' );
 
 		/*
-		* Enable support for RSS feed links to head.
-		*/
+		 * Enable support for RSS feed links to head.
+		 */
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-		* Enable selective refresh for widgets.
-		*/
+		 * Enable selective refresh for widgets.
+		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/*
-		* Enable support for post thumbnails.
-		*/
+		 * Enable support for post thumbnails.
+		 */
 		add_theme_support( 'post-thumbnails' );
 
 		add_image_size( 'block-featured-large', 2400, 1800, true ); // Large Featured Image.
@@ -43,20 +42,18 @@ if ( ! function_exists( 'block_lite_setup' ) ) :
 		add_image_size( 'block-featured-square', 1200, 1200, true ); // Square Featured Image.
 
 		/*
-		* Enable support for site title tag.
-		*/
+		 * Enable support for site title tag.
+		 */
 		add_theme_support( 'title-tag' );
 
 		/*
-		* Enable support for wide alignment class for Gutenberg blocks.
-		*/
-		add_theme_support( 'gutenberg', array(
-			'wide-images' => true,
-		) );
+		 * Enable support for wide alignment class for Gutenberg blocks.
+		 */
+		add_theme_support( 'align-wide' );
 
 		/*
-		* Enable support for custom logo.
-		*/
+		 * Enable support for custom logo.
+		 */
 		add_theme_support( 'custom-logo', array(
 			'height'      => 480,
 			'width'       => 480,
@@ -65,40 +62,40 @@ if ( ! function_exists( 'block_lite_setup' ) ) :
 		) );
 
 		/*
-		* Enable support for custom menus.
-		*/
+		 * Enable support for custom menus.
+		 */
 		register_nav_menus( array(
-			'main-menu' => esc_html__( 'Main Menu', 'block-lite' ),
+			'main-menu'   => esc_html__( 'Main Menu', 'block-lite' ),
 			'social-menu' => esc_html__( 'Social Menu', 'block-lite' ),
 		));
 
 		/*
-		* Enable support for custom header.
-		*/
+		 * Enable support for custom header.
+		 */
 		register_default_headers( array(
 			'default' => array(
-			'url'   => get_template_directory_uri() . '/images/default-header.jpg',
-			'thumbnail_url' => get_template_directory_uri() . '/images/default-header.jpg',
-			'description'   => esc_html__( 'Default Custom Header', 'block-lite' ),
+				'url'           => get_template_directory_uri() . '/images/default-header.jpg',
+				'thumbnail_url' => get_template_directory_uri() . '/images/default-header.jpg',
+				'description'   => esc_html__( 'Default Custom Header', 'block-lite' ),
 			),
-		));
+		) );
 		$defaults = array(
-			'video' 							=> true,
-			'width'								=> 2400,
-			'height'							=> 1800,
-			'flex-height'					=> true,
-			'flex-width'					=> true,
-			'default-image' 			=> get_template_directory_uri() . '/images/default-header.jpg',
-			'header-text'					=> false,
-			'uploads'							=> true,
+			'video'         => true,
+			'width'         => 2400,
+			'height'        => 1800,
+			'flex-height'   => true,
+			'flex-width'    => true,
+			'default-image' => get_template_directory_uri() . '/images/default-header.jpg',
+			'header-text'   => false,
+			'uploads'       => true,
 		);
 		add_theme_support( 'custom-header', $defaults );
 
 		/*
-		* Enable support for custom background.
-		*/
+		 * Enable support for custom background.
+		 */
 		$defaults = array(
-			'default-color'          => 'ffffff',
+			'default-color' => 'ffffff',
 		);
 		add_theme_support( 'custom-background', $defaults );
 
@@ -155,12 +152,13 @@ add_action( 'wp_enqueue_scripts', 'block_lite_enqueue_scripts' );
 
 if ( ! function_exists( 'block_lite_cat_id_to_name' ) ) :
 
-function block_lite_cat_id_to_name( $id ) {
-	$cat = get_category( $id );
-	if ( is_wp_error( $cat ) ) {
-		return false; }
-	return $cat->cat_name;
-}
+	/** Function block_lite_cat_id_to_name */
+	function block_lite_cat_id_to_name( $id ) {
+		$cat = get_category( $id );
+		if ( is_wp_error( $cat ) ) {
+			return false; }
+		return $cat->cat_name;
+	}
 endif;
 
 /*
@@ -171,25 +169,25 @@ endif;
 
 if ( ! function_exists( 'block_lite_widgets_init' ) ) :
 
-/** Function block_lite_widgets_init */
-function block_lite_widgets_init() {
-	register_sidebar(array(
-		'name' => esc_html__( 'Home Bottom', 'block-lite' ),
-		'id' => 'home-bottom',
-		'before_widget' => '<aside id="%1$s" class="organic-widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-	register_sidebar(array(
-		'name' => esc_html__( 'Footer Widgets', 'block-lite' ),
-		'id' => 'footer',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="footer-widget">',
-		'after_widget' => '</div></aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-}
+	/** Function block_lite_widgets_init */
+	function block_lite_widgets_init() {
+		register_sidebar(array(
+			'name'          => esc_html__( 'Home Bottom', 'block-lite' ),
+			'id'            => 'home-bottom',
+			'before_widget' => '<aside id="%1$s" class="organic-widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		));
+		register_sidebar(array(
+			'name'          => esc_html__( 'Footer Widgets', 'block-lite' ),
+			'id'            => 'footer',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="footer-widget">',
+			'after_widget'  => '</div></aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		));
+	}
 endif;
 add_action( 'widgets_init', 'block_lite_widgets_init' );
 
@@ -201,40 +199,40 @@ add_action( 'widgets_init', 'block_lite_widgets_init' );
 
 if ( ! function_exists( 'block_lite_posted_on' ) ) :
 
-/** Function block_lite_posted_on */
-function block_lite_posted_on() {
-	if ( get_the_modified_time() != get_the_time() ) {
-		printf( __( '<span class="%1$s">Updated:</span> %2$s', 'block-lite' ),
-			'meta-prep meta-prep-author',
-			sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_modified_time() ),
-				esc_attr( get_the_modified_date() )
-			)
-		);
-	} else {
-		printf( __( '<span class="%1$s">Posted:</span> %2$s', 'block-lite' ),
-			'meta-prep meta-prep-author',
-			sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
-				get_the_date()
-			)
-		);
+	/** Function block_lite_posted_on */
+	function block_lite_posted_on() {
+		if ( get_the_modified_time() !== get_the_time() ) {
+			printf( __( '<span class="%1$s">Updated:</span> %2$s', 'block-lite' ),
+				'meta-prep meta-prep-author',
+				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
+					esc_url( get_permalink() ),
+					esc_attr( get_the_modified_time() ),
+					esc_attr( get_the_modified_date() )
+				)
+			);
+		} else {
+			printf( __( '<span class="%1$s">Posted:</span> %2$s', 'block-lite' ),
+				'meta-prep meta-prep-author',
+				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
+					esc_url( get_permalink() ),
+					esc_attr( get_the_time() ),
+					get_the_date()
+				)
+			);
+		}
 	}
-}
 
 endif;
 
 if ( ! function_exists( 'block_lite_posted_on_no_link' ) ) :
 
-/** Function block_lite_posted_on_no_link */
-function block_lite_posted_on_no_link() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s', 'block-lite' ),
-		'meta-prep meta-prep-author',
-		get_the_date( 'M, j' )
-	);
-}
+	/** Function block_lite_posted_on_no_link */
+	function block_lite_posted_on_no_link() {
+		printf( __( '<span class="%1$s">Posted on</span> %2$s', 'block-lite' ),
+			'meta-prep meta-prep-author',
+			get_the_date( 'M, j' )
+		);
+	}
 
 endif;
 
@@ -244,14 +242,17 @@ endif;
 ------------------------------------------------------------------------------------------------------
 */
 
-if ( ! isset( $content_width ) ) { $content_width = 760; }
+if ( ! isset( $content_width ) ) {
+	$content_width = 760;
+}
 
 if ( ! function_exists( 'block_lite_content_width' ) ) :
 
-/** Function block_lite_content_width */
-function block_lite_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'block_lite_content_width', 760 );
-}
+	/** Function block_lite_content_width */
+	function block_lite_content_width() {
+		$GLOBALS['content_width'] = apply_filters( 'block_lite_content_width', 760 );
+	}
+
 endif;
 add_action( 'after_setup_theme', 'block_lite_content_width', 0 );
 
@@ -272,15 +273,15 @@ if ( ! function_exists( 'block_lite_comment' ) ) :
 	 */
 	function block_lite_comment( $comment, $args, $depth ) {
 		switch ( $comment->comment_type ) :
-			case 'pingback' :
-			case 'trackback' :
-		?>
+			case 'pingback':
+			case 'trackback':
+				?>
 		<li class="post pingback">
 		<p><?php esc_html_e( 'Pingback:', 'block-lite' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_html__( 'Edit', 'block-lite' ), '<span class="edit-link">', '</span>' ); ?></p>
-	<?php
-		break;
-			default :
-		?>
+				<?php
+				break;
+			default:
+				?>
 		<li <?php comment_class(); ?> id="<?php echo esc_attr( 'li-comment-' . get_comment_ID() ); ?>">
 
 		<article id="<?php echo esc_attr( 'comment-' . get_comment_ID() ); ?>" class="comment">
@@ -288,7 +289,7 @@ if ( ! function_exists( 'block_lite_comment' ) ) :
 				<div class="comment-author vcard">
 					<?php
 						$avatar_size = 72;
-					if ( '0' != $comment->comment_parent ) {
+					if ( '0' !== $comment->comment_parent ) {
 						$avatar_size = 48; }
 
 						echo get_avatar( $comment, $avatar_size );
@@ -303,27 +304,33 @@ if ( ! function_exists( 'block_lite_comment' ) ) :
 								sprintf( esc_html__( '%1$s, %2$s', 'block-lite' ), get_comment_date(), get_comment_time() )
 							)
 						);
-						?>
+					?>
 					</div><!-- END .comment-author .vcard -->
 				</footer>
 
 				<div class="comment-content">
-					<?php if ( '0' == $comment->comment_approved ) : ?>
+					<?php if ( '0' === $comment->comment_approved ) : ?>
 					<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'block-lite' ); ?></em>
 					<br />
 				<?php endif; ?>
 					<?php comment_text(); ?>
 					<div class="reply">
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply', 'block-lite' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					<?php
+					comment_reply_link( array_merge( $args, array(
+						'reply_text' => esc_html__( 'Reply', 'block-lite' ),
+						'depth'      => $depth,
+						'max_depth'  => $args['max_depth'],
+					) ) );
+					?>
 					</div><!-- .reply -->
 					<?php edit_comment_link( esc_html__( 'Edit', 'block-lite' ), '<span class="edit-link">', '</span>' ); ?>
 				</div>
 
 			</article><!-- #comment-## -->
 
-		<?php
-		break;
-		endswitch;
+				<?php
+				break;
+			endswitch;
 	}
 endif; // Ends check for block_lite_comment().
 
@@ -362,10 +369,10 @@ add_filter( 'excerpt_more', 'block_lite_excerpt_more' );
  *
  * @return string
  */
-function block_lite_more_link($more_link, $more_link_text) {
-	return '<p><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . $more_link_text .'</a></p>';
+function block_lite_more_link( $more_link, $more_link_text ) {
+	return '<p><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . $more_link_text . '</a></p>';
 }
-add_filter('the_content_more_link', 'block_lite_more_link', 10, 2);
+add_filter( 'the_content_more_link', 'block_lite_more_link', 10, 2 );
 
 /*
 -------------------------------------------------------------------------------------------------------
@@ -373,11 +380,8 @@ add_filter('the_content_more_link', 'block_lite_more_link', 10, 2);
 -------------------------------------------------------------------------------------------------------
 */
 
-/**
- * Add excerpt to pages.
- */
-
 add_action( 'init', 'block_lite_page_excerpts' );
+/** Function block_lite_page_excerpts */
 function block_lite_page_excerpts() {
 	add_post_type_support( 'page', 'excerpt' );
 }
@@ -397,27 +401,27 @@ function block_lite_page_excerpts() {
 
 if ( ! function_exists( 'block_lite_wp_link_pages_args_prevnext_add' ) ) :
 
-function block_lite_wp_link_pages_args_prevnext_add( $args ) {
-	global $page, $numpages, $more, $pagenow;
+	function block_lite_wp_link_pages_args_prevnext_add( $args ) {
+		global $page, $numpages, $more, $pagenow;
 
-	if ( ! $args['next_or_number'] == 'next_and_number' ) {
-		return $args; }
+		if ( 'next_and_number' !== $args['next_or_number'] ) {
+			return $args; }
 
-	$args['next_or_number'] = 'number'; // Keep numbering for the main part.
-	if ( ! $more ) {
-		return $args; }
+		$args['next_or_number'] = 'number'; // Keep numbering for the main part.
+		if ( ! $more ) {
+			return $args; }
 
-	if ( $page -1 ) { // There is a previous page.
-		$args['before'] .= _wp_link_page( $page -1 )
-			. $args['link_before']. $args['previouspagelink'] . $args['link_after'] . '</a>'; }
+		if ( $page - 1 ) { // There is a previous page.
+			$args['before'] .= _wp_link_page( $page - 1 )
+				. $args['link_before'] . $args['previouspagelink'] . $args['link_after'] . '</a>'; }
 
-	if ( $page < $numpages ) { // There is a next page.
-		$args['after'] = _wp_link_page( $page + 1 )
-			. $args['link_before'] . $args['nextpagelink'] . $args['link_after'] . '</a>'
-			. $args['after']; }
+		if ( $page < $numpages ) { // There is a next page.
+			$args['after'] = _wp_link_page( $page + 1 )
+				. $args['link_before'] . $args['nextpagelink'] . $args['link_after'] . '</a>'
+				. $args['after']; }
 
-	return $args;
-}
+		return $args;
+	}
 endif;
 add_filter( 'wp_link_pages_args', 'block_lite_wp_link_pages_args_prevnext_add' );
 
@@ -436,14 +440,14 @@ add_filter( 'wp_link_pages_args', 'block_lite_wp_link_pages_args_prevnext_add' )
 
 if ( ! function_exists( 'block_lite_remove_gallery' ) ) :
 
-function block_lite_remove_gallery( $content ) {
-	if ( is_page_template( 'template-slideshow.php' ) ) {
-		$regex = get_shortcode_regex( array( 'gallery' ) );
-		$content = preg_replace( '/'. $regex .'/s', '', $content, 1 );
-		$content = wp_kses_post( $content );
+	function block_lite_remove_gallery( $content ) {
+		if ( is_page_template( 'template-slideshow.php' ) ) {
+			$regex   = get_shortcode_regex( array( 'gallery' ) );
+			$content = preg_replace( '/' . $regex . '/s', '', $content, 1 );
+			$content = wp_kses_post( $content );
+		}
+		return $content;
 	}
-	return $content;
-}
 endif;
 add_filter( 'the_content', 'block_lite_remove_gallery' );
 
@@ -462,85 +466,85 @@ add_filter( 'the_content', 'block_lite_remove_gallery' );
 
 if ( ! function_exists( 'block_lite_body_class' ) ) :
 
-function block_lite_body_class( $classes ) {
+	function block_lite_body_class( $classes ) {
 
-	$header_image = get_header_image();
-	$post_pages = is_home() || is_archive() || is_search() || is_attachment();
+		$header_image = get_header_image();
+		$post_pages   = is_home() || is_archive() || is_search() || is_attachment();
 
-	if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-		$classes[] = 'block-has-logo';
-	} else {
-		$classes[] = 'block-no-logo';
+		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+			$classes[] = 'block-has-logo';
+		} else {
+			$classes[] = 'block-no-logo';
+		}
+
+		if ( is_page_template( 'template-landing.php' ) ) {
+			$classes[] = 'block-landing-page'; }
+
+		if ( is_page_template( 'template-slideshow.php' ) ) {
+			$classes[] = 'block-slideshow'; }
+
+		if ( 'left' === get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
+			$classes[] = 'block-nav-left'; }
+
+		if ( 'center' === get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
+			$classes[] = 'block-nav-center'; }
+
+		if ( 'right' === get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
+			$classes[] = 'block-nav-right'; }
+
+		if ( 'left' === get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
+			$classes[] = 'block-desc-left'; }
+
+		if ( 'center' === get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
+			$classes[] = 'block-desc-center'; }
+
+		if ( 'right' === get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
+			$classes[] = 'block-desc-right'; }
+
+		if ( 'blank' !== get_theme_mod( 'block_lite_site_tagline' ) ) {
+			$classes[] = 'block-desc-active';
+		} else {
+			$classes[] = 'block-desc-inactive';
+		}
+
+		if ( ! has_nav_menu( 'social-menu' ) ) {
+			$classes[] = 'block-no-social-menu'; }
+
+		if ( is_singular() && ! has_post_thumbnail() ) {
+			$classes[] = 'block-no-img'; }
+
+		if ( is_singular() && has_post_thumbnail() ) {
+			$classes[] = 'block-has-img'; }
+
+		if ( $post_pages && ! empty( $header_image ) ) {
+			$classes[] = 'block-header-active';
+		} else {
+			$classes[] = 'block-header-inactive';
+		}
+
+		if ( is_header_video_active() && has_header_video() ) {
+			$classes[] = 'block-header-video-active';
+		} else {
+			$classes[] = 'block-header-video-inactive';
+		}
+
+		if ( is_singular() ) {
+			$classes[] = 'block-singular';
+		}
+
+		if ( '' !== get_theme_mod( 'background_image' ) ) {
+			// This class will render when a background image is set
+			// regardless of whether the user has set a color as well.
+			$classes[] = 'block-background-image';
+		} elseif ( ! in_array( get_background_color(), array( '', get_theme_support( 'custom-background', 'default-color' ) ), true ) ) {
+			// This class will render when a background color is set
+			// but no image is set. In the case the content text will
+			// Adjust relative to the background color.
+			$classes[] = 'block-relative-text';
+		}
+
+		return $classes;
 	}
-
-	if ( is_page_template( 'template-landing.php' ) ) {
-		$classes[] = 'block-landing-page'; }
-
-	if ( is_page_template( 'template-slideshow.php' ) ) {
-		$classes[] = 'block-slideshow'; }
-
-	if ( 'left' == get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
-		$classes[] = 'block-nav-left'; }
-
-	if ( 'center' == get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
-		$classes[] = 'block-nav-center'; }
-
-	if ( 'right' == get_theme_mod( 'block_lite_nav_align', 'right' ) ) {
-		$classes[] = 'block-nav-right'; }
-
-	if ( 'left' == get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
-		$classes[] = 'block-desc-left'; }
-
-	if ( 'center' == get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
-		$classes[] = 'block-desc-center'; }
-
-	if ( 'right' == get_theme_mod( 'block_lite_desc_align', 'center' ) ) {
-		$classes[] = 'block-desc-right'; }
-
-	if ( 'blank' != get_theme_mod( 'block_lite_site_tagline' ) ) {
-		$classes[] = 'block-desc-active';
-	} else {
-		$classes[] = 'block-desc-inactive';
-	}
-
-	if ( ! has_nav_menu( 'social-menu' ) ) {
-		$classes[] = 'block-no-social-menu'; }
-
-	if ( is_singular() && ! has_post_thumbnail() ) {
-		$classes[] = 'block-no-img'; }
-
-	if ( is_singular() && has_post_thumbnail() ) {
-		$classes[] = 'block-has-img'; }
-
-	if ( $post_pages && ! empty( $header_image ) ) {
-		$classes[] = 'block-header-active';
-	} else {
-		$classes[] = 'block-header-inactive';
-	}
-
-	if ( is_header_video_active() && has_header_video() ) {
-		$classes[] = 'block-header-video-active';
-	} else {
-		$classes[] = 'block-header-video-inactive';
-	}
-
-	if ( is_singular() ) {
-		$classes[] = 'block-singular';
-	}
-
-	if ( '' != get_theme_mod( 'background_image' ) ) {
-		// This class will render when a background image is set
-		// regardless of whether the user has set a color as well.
-		$classes[] = 'block-background-image';
-	} else if ( ! in_array( get_background_color(), array( '', get_theme_support( 'custom-background', 'default-color' ) ), true ) ) {
-		// This class will render when a background color is set
-		// but no image is set. In the case the content text will
-		// Adjust relative to the background color.
-		$classes[] = 'block-relative-text';
-	}
-
-	return $classes;
-}
 endif;
 add_action( 'body_class', 'block_lite_body_class' );
 
@@ -550,9 +554,9 @@ add_action( 'body_class', 'block_lite_body_class' );
 -------------------------------------------------------------------------------------------------------
 */
 
-require_once( get_template_directory() . '/customizer/customizer.php' );
-require_once( get_template_directory() . '/includes/style-options.php' );
-require_once( get_template_directory() . '/includes/typefaces.php' );
-require_once( get_template_directory() . '/includes/plugin-activation.php' );
-require_once( get_template_directory() . '/includes/plugin-activation-class.php' );
-require_once( get_template_directory() . '/includes/aria-walker-nav-menu.php' );
+require_once get_template_directory() . '/customizer/customizer.php';
+require_once get_template_directory() . '/includes/style-options.php';
+require_once get_template_directory() . '/includes/typefaces.php';
+require_once get_template_directory() . '/includes/plugin-activation.php';
+require_once get_template_directory() . '/includes/plugin-activation-class.php';
+require_once get_template_directory() . '/includes/aria-walker-nav-menu.php';

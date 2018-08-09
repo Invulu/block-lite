@@ -50,9 +50,9 @@
 
 				<div class="align-left">
 
-					<p><?php esc_html_e( 'Copyright', 'block-lite' ); ?> &copy; <?php echo date( esc_html__( 'Y', 'block-lite' ) ); ?> &middot; <?php esc_html_e( 'All Rights Reserved', 'block-lite' ); ?> &middot; <?php esc_html( bloginfo( 'name' ) ); ?></p>
+					<p><?php esc_html_e( 'Copyright', 'block-lite' ); ?> &copy; <?php echo esc_html( date( 'Y' ) ); ?> &middot; <?php esc_html_e( 'All Rights Reserved', 'block-lite' ); ?> &middot; <?php esc_html( bloginfo( 'name' ) ); ?></p>
 
-					<?php if ( '' != get_theme_mod( 'block_lite_footer_text' ) ) { ?>
+					<?php if ( '' !== get_theme_mod( 'block_lite_footer_text' ) ) { ?>
 
 						<p><span class="footer-site-info"><?php echo esc_attr( get_theme_mod( 'block_lite_footer_text' ) ); ?></span></p>
 
@@ -66,18 +66,19 @@
 
 				<?php if ( has_nav_menu( 'social-menu' ) ) { ?>
 
-				<nav class="align-right" role="navigation" aria-label="<?php _e( 'Social Navigation', 'block-lite' ); ?>">
+				<nav class="align-right" role="navigation" aria-label="<?php esc_html_e( 'Social Navigation', 'block-lite' ); ?>">
 
-					<?php wp_nav_menu( array(
-						'theme_location' => 'social-menu',
-						'title_li' => '',
-						'depth' => 1,
+					<?php
+					wp_nav_menu( array(
+						'theme_location'  => 'social-menu',
+						'title_li'        => '',
+						'depth'           => 1,
 						'container_class' => 'social-menu',
 						'menu_class'      => 'social-icons',
 						'link_before'     => '<span class="screen-reader-text">',
 						'link_after'      => '</span>',
-						)
-					); ?>
+					) );
+					?>
 
 				</nav>
 

@@ -1,6 +1,6 @@
 === Block Lite ===
 
-Version: 1.0.3
+Version: 1.0.5
 Contributors: organicthemes, itsdavidmorgan
 Tags: blog, portfolio, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 Requires at least: 4.8
@@ -62,6 +62,14 @@ Block Lite is distributed under the terms of the GNU GPL
 * jquery.bgBrightness.js, Released under the WTFPL license, https://organicthemes.com
 
 == Changelog ==
+
+== 1.0.5 ==
+* General cleanup of files using PHPCS
+* Fixed undefined variable in loop-blog.php
+* Added absolute integer escaping to logo size outputs
+
+== 1.0.4 ==
+* Updated TGMPA plugin activation files
 
 == 1.0.3 ==
 * WP.org review fixes

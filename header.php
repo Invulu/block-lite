@@ -45,22 +45,21 @@
 		<?php if ( has_nav_menu( 'main-menu' ) ) { ?>
 
 			<!-- BEGIN #navigation -->
-			<nav id="navigation" class="navigation-main" role="navigation" aria-label="<?php _e( 'Primary Navigation', 'block-lite' ); ?>">
+			<nav id="navigation" class="navigation-main" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'block-lite' ); ?>">
 
 				<?php
-					wp_nav_menu( array(
-						'theme_location'		=> 'main-menu',
-						'title_li'					=> '',
-						'depth'							=> 4,
-						'fallback_cb'			 	=> 'wp_page_menu',
-						'container' 				=> false,
-						'menu_class'				=> 'menu',
-						'walker' 						=> new Aria_Walker_Nav_Menu(),
-						'items_wrap'				=> '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
-						'link_before'     => '<span>',
-						'link_after'      => '</span>',
-						)
-					);
+				wp_nav_menu( array(
+					'theme_location' => 'main-menu',
+					'title_li'       => '',
+					'depth'          => 4,
+					'fallback_cb'    => 'wp_page_menu',
+					'container'      => false,
+					'menu_class'     => 'menu',
+					'walker'         => new Aria_Walker_Nav_Menu(),
+					'items_wrap'     => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
+					'link_before'    => '<span>',
+					'link_after'     => '</span>',
+				) );
 				?>
 
 			<!-- END #navigation -->
@@ -68,7 +67,7 @@
 
 			<button type="button" id="menu-toggle" class="menu-toggle" href="#sidr">
 				<svg class="icon-menu-open" version="1.1" id="icon-open" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+					width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 					<rect y="2" width="24" height="2"/>
 					<rect y="11" width="24" height="2"/>
 					<rect y="20" width="24" height="2"/>
@@ -86,43 +85,43 @@
 
 		<?php if ( has_custom_header() || has_custom_logo() ) { ?>
 
-		<?php if ( is_home() || is_archive() || is_search() || is_attachment() ) { ?>
+			<?php if ( is_home() || is_archive() || is_search() || is_attachment() ) { ?>
 
-		<!-- BEGIN #custom-header -->
-		<div id="custom-header">
+			<!-- BEGIN #custom-header -->
+			<div id="custom-header">
 
-			<!-- BEGIN #masthead-->
-			<div id="masthead">
+				<!-- BEGIN #masthead-->
+				<div id="masthead">
 
-				<div class="header-content">
+					<div class="header-content">
 
-					<?php the_custom_logo(); ?>
+						<?php the_custom_logo(); ?>
 
-					<?php if ( is_front_page() && is_home() ) { ?>
-						<h2 class="site-description"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></h2>
-					<?php } else { ?>
-						<p class="site-description"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
-					<?php } ?>
+						<?php if ( is_front_page() && is_home() ) { ?>
+							<h2 class="site-description"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></h2>
+						<?php } else { ?>
+							<p class="site-description"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
+						<?php } ?>
 
-					<?php if ( have_posts() && is_category() ) { ?>
-						<h1 class="text-center"><?php the_archive_title(); ?></h1>
-					<?php } ?>
+						<?php if ( have_posts() && is_category() ) { ?>
+							<h1 class="text-center"><?php the_archive_title(); ?></h1>
+						<?php } ?>
 
+					</div>
+
+				<!-- END #masthead-->
 				</div>
 
-			<!-- END #masthead-->
+				<?php if ( is_front_page() && is_home() ) { ?>
+					<a href="#blog-posts" class="scroll-down scroll"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<?php } ?>
+
+				<?php the_custom_header_markup(); ?>
+
+			<!-- END #custom-header -->
 			</div>
 
-			<?php if ( is_front_page() && is_home() ) { ?>
-				<a href="#blog-posts" class="scroll-down scroll"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 			<?php } ?>
-
-			<?php the_custom_header_markup(); ?>
-
-		<!-- END #custom-header -->
-		</div>
-
-		<?php } ?>
 
 		<?php } ?>
 

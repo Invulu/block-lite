@@ -39,10 +39,12 @@
 		<?php endwhile; ?>
 	</ul>
 
-	<?php the_posts_pagination( array(
-		'prev_text' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Previous Page', 'block-lite' ) . ' </span>&laquo;',
-		'next_text' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Next Page', 'block-lite' ) . ' </span>&raquo;',
-	) ); ?>
+		<?php
+		the_posts_pagination( array(
+			'prev_text' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Previous Page', 'block-lite' ) . ' </span>&laquo;',
+			'next_text' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Next Page', 'block-lite' ) . ' </span>&raquo;',
+		) );
+		?>
 
 	<?php else : ?>
 		<p><?php esc_html_e( 'No posts by this author.', 'block-lite' ); ?></p>

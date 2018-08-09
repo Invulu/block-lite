@@ -5,7 +5,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function block_lite_logo_customize_register( $wp_customize ) {
-	// Logo Resizer additions
+	// Logo Resizer additions.
 	$wp_customize->add_setting( 'logo_size', array(
 		'default'              => 50,
 		'type'                 => 'theme_mod',
@@ -38,49 +38,51 @@ add_action( 'customize_register', 'block_lite_logo_customize_register' );
  * Add support for logo resizing by filtering `get_custom_logo`
  */
 function block_lite_logo_customize_logo_resize( $html ) {
-	$size = get_theme_mod( 'logo_size' );
+	$size           = get_theme_mod( 'logo_size' );
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
-	// set the short side minimum
+	// set the short side minimum.
 	$min = 48;
 
-	// don't use empty() because we can still use a 0
+	// don't use empty() because we can still use a 0.
 	if ( is_numeric( $size ) && is_numeric( $custom_logo_id ) ) {
 
-		// we're looking for $img['width'] and $img['height'] of blockal image
+		// we're looking for $img['width'] and $img['height'] of blockal image.
 		$logo = wp_get_attachment_metadata( $custom_logo_id );
-		if ( ! $logo ) return $html;
+		if ( ! $logo ) {
+			return $html;
+		}
 
-		// get the logo support size
+		// get the logo support size.
 		$sizes = get_theme_support( 'custom-logo' );
 
-		// Check for max height and width, default to image sizes if none set in theme
+		// Check for max height and width, default to image sizes if none set in theme.
 		$max['height'] = isset( $sizes[0]['height'] ) ? $sizes[0]['height'] : $logo['height'];
-		$max['width'] = isset( $sizes[0]['width'] ) ? $sizes[0]['width'] : $logo['width'];
+		$max['width']  = isset( $sizes[0]['width'] ) ? $sizes[0]['width'] : $logo['width'];
 
-		// landscape or square
+		// landscape or square.
 		if ( $logo['width'] >= $logo['height'] ) {
 			$output = block_lite_logo_min_max( $logo['height'], $logo['width'], $max['height'], $max['width'], $size, $min );
-			$img = array(
-				'height'	=> $output['short'],
-				'width'		=> $output['long']
+			$img    = array(
+				'height' => $output['short'],
+				'width'  => $output['long'],
 			);
-		// portrait
+			// portrait.
 		} else if ( $logo['width'] < $logo['height'] ) {
 			$output = block_lite_logo_min_max( $logo['width'], $logo['height'], $max['width'], $max['height'], $size, $min );
-			$img = array(
-				'height'	=> $output['long'],
-				'width'		=> $output['short']
+			$img    = array(
+				'height' => $output['long'],
+				'width'  => $output['short'],
 			);
 		}
 
-		// add the CSS
+		// add the CSS.
 		$css = '
 <style>
 .custom-logo {
-	height: ' . $img['height'] . 'px;
-	max-height: ' . $max['height'] . 'px;
-	max-width: ' . $max['width'] . 'px;
-	width: ' . $img['width'] . 'px;
+	height: ' . absint( $img['height'] ) . 'px;
+	max-height: ' . absint( $max['height'] ) . 'px;
+	max-width: ' . absint( $max['width'] ) . 'px;
+	width: ' . absint( $img['width'] ) . 'px;
 }
 </style>';
 
@@ -93,14 +95,14 @@ add_filter( 'get_custom_logo', 'block_lite_logo_customize_logo_resize' );
 
 /* Helper function to determine the max size of the logo */
 function block_lite_logo_min_max( $short, $long, $short_max, $long_max, $percent, $min ){
-	$ratio = ( $long / $short );
-	$max['long'] = ( $long_max >= $long ) ? $long : $long_max;
+	$ratio        = ( $long / $short );
+	$max['long']  = ( $long_max >= $long ) ? $long : $long_max;
 	$max['short'] = ( $short_max >= ( $max['long'] / $ratio ) ) ? floor( $max['long'] / $ratio ) : $short_max;
 
 	$ppp = ( $max['short'] - $min ) / 100;
 
 	$size['short'] = round( $min + ( $percent * $ppp ) );
-	$size['long'] = round( $size['short'] / ( $short / $long ) );
+	$size['long']  = round( $size['short'] / ( $short / $long ) );
 
 	return $size;
 }

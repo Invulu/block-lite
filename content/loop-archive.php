@@ -10,7 +10,7 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-	<?php $thumb = ( '' != get_the_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'block-featured-medium' ) : false; ?>
+		<?php $thumb = ( '' !== get_the_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'block-featured-medium' ) : false; ?>
 
 	<!-- BEGIN .post class -->
 	<article <?php post_class( 'post-holder' ); ?> id="post-<?php the_ID(); ?>">
@@ -42,7 +42,7 @@
 		<div class="pagination">
 			<div class="nav-links">
 				<?php previous_posts_link( '<i class="fa fa-angle-left" aria-hidden="true"></i>' ); ?>
-				<?php next_posts_link( '<i class="fa fa-angle-right" aria-hidden="true"></i>', '' ); ?>
+				<?php next_posts_link( '<i class="fa fa-angle-right" aria-hidden="true"></i>' ); ?>
 			</div>
 		</div>
 

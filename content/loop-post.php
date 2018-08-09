@@ -17,20 +17,21 @@
 			<h1 class="entry-header"><?php the_title(); ?></h1>
 		<?php } ?>
 
-		<?php the_content( sprintf( esc_html__( 'Continue reading%s', 'block-lite' ), '<span class="screen-reader-text">  '.get_the_title().'</span>', false ) ); ?>
+		<?php the_content( sprintf( esc_html__( 'Continue reading%s', 'block-lite' ), '<span class="screen-reader-text">  ' . get_the_title() . '</span>', false ) ); ?>
 
-		<?php wp_link_pages(array(
-			'before' => '<p class="page-links"><span class="link-label">' . esc_html__( 'Pages:', 'block-lite' ) . '</span>',
-			'after' => '</p>',
-			'link_before' => '<span>',
-			'link_after' => '</span>',
-			'next_or_number' => 'next_and_number',
-			'nextpagelink' => esc_html__( 'Next', 'block-lite' ),
+		<?php
+		wp_link_pages(array(
+			'before'           => '<p class="page-links"><span class="link-label">' . esc_html__( 'Pages:', 'block-lite' ) . '</span>',
+			'after'            => '</p>',
+			'link_before'      => '<span>',
+			'link_after'       => '</span>',
+			'next_or_number'   => 'next_and_number',
+			'nextpagelink'     => esc_html__( 'Next', 'block-lite' ),
 			'previouspagelink' => esc_html__( 'Previous', 'block-lite' ),
-			'pagelink' => '%',
-			'echo' => 1,
-			)
-		); ?>
+			'pagelink'         => '%',
+			'echo'             => 1,
+		) );
+		?>
 
 	<!-- END .entry-content -->
 	</article>
@@ -39,19 +40,19 @@
 	<div class="post-meta">
 
 		<?php
-		$prevPost = get_previous_post(true);
-		if ( is_object( $prevPost ) ) {
-			$prevThumb = get_the_post_thumbnail_url( $prevPost->ID, array(600, 600) );
+		$prev_post = get_previous_post( true );
+		if ( is_object( $prev_post ) ) {
+			$prev_thumb = get_the_post_thumbnail_url( $prev_post->ID, array( 600, 600 ) );
 		}
-		$nextPost = get_next_post(true);
-		if ( is_object( $nextPost ) ) {
-			$nextThumb = get_the_post_thumbnail_url( $nextPost->ID, array(600, 600) );
+		$next_post = get_next_post( true );
+		if ( is_object( $next_post ) ) {
+			$next_thumb = get_the_post_thumbnail_url( $next_post->ID, array( 600, 600 ) );
 		}
 		?>
 
 		<?php if ( get_previous_post( true ) ) { ?>
 		<div class="post-navigation">
-			<div class="previous-post" style="background-image: url(<?php echo esc_url( $prevThumb ); ?>);">
+			<div class="previous-post" style="background-image: url(<?php echo esc_url( $prev_thumb ); ?>);">
 				<span class="nav-label"><i class="fa fa-angle-left"></i></span>
 				<?php previous_post_link( '%link', '%title', true ); ?>
 			</div>
@@ -87,7 +88,7 @@
 
 		<?php if ( get_next_post( true ) ) { ?>
 		<div class="post-navigation">
-			<div class="next-post" style="background-image: url(<?php echo esc_url( $nextThumb ); ?>);">
+			<div class="next-post" style="background-image: url(<?php echo esc_url( $next_thumb ); ?>);">
 				<span class="nav-label"><i class="fa fa-angle-right"></i></span>
 				<?php next_post_link( '%link', '%title', true ); ?>
 			</div>
@@ -97,7 +98,11 @@
 	<!-- END .post-meta -->
 	</div>
 
-	<?php if ( comments_open() || '0' != get_comments_number() ) { comments_template(); } ?>
+		<?php
+		if ( comments_open() || '0' !== get_comments_number() ) {
+			comments_template();
+		}
+		?>
 
 <?php endwhile; else : ?>
 

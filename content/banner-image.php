@@ -9,7 +9,7 @@
 ?>
 
 <?php $header_image = get_header_image(); ?>
-<?php $thumb = ( '' != get_the_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'block-featured-large' ) : false; ?>
+<?php $thumb = ( '' !== get_the_post_thumbnail() ) ? wp_get_attachment_image_src( get_post_thumbnail_id(), 'block-featured-large' ) : false; ?>
 
 <?php if ( has_post_thumbnail() ) { ?>
 
@@ -20,7 +20,7 @@
 			<?php if ( is_page() || is_single() ) { ?>
 				<div class="img-title">
 					<?php if ( is_single() ) { ?>
-						<p class="post-author"><?php block_lite_posted_on_no_link(); ?> <em><?php esc_html_e( 'by', 'block-lite' ); ?></em> <?php the_post(); echo get_the_author(); rewind_posts(); ?></p>
+						<p class="post-author"><?php block_lite_posted_on_no_link(); ?> <em><?php esc_html_e( 'by', 'block-lite' ); ?></em> <?php the_post(); ?><?php echo get_the_author(); ?><?php rewind_posts(); ?></p>
 					<?php } ?>
 					<h1 class="img-headline"><?php the_title(); ?></h1>
 					<?php if ( ! empty( $post->post_excerpt ) ) { ?>

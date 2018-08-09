@@ -20,8 +20,8 @@ function block_lite_fonts_url() {
 	* into your own language.
 	*/
 
-	$raleway = _x( 'on', 'Raleway font: on or off', 'block-lite' );
-	$montserrat = _x( 'on', 'Montserrat font: on or off', 'block-lite' );
+	$raleway      = _x( 'on', 'Raleway font: on or off', 'block-lite' );
+	$montserrat   = _x( 'on', 'Montserrat font: on or off', 'block-lite' );
 	$merriweather = _x( 'on', 'Merriweather font: on or off', 'block-lite' );
 
 	if ( 'off' !== $merriweather || 'off' !== $raleway || 'off' !== $montserrat ) {
@@ -41,8 +41,8 @@ function block_lite_fonts_url() {
 		}
 
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );

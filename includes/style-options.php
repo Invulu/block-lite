@@ -12,8 +12,8 @@
 function block_lite_custom_styles() {
 
 	$header_image = get_header_image();
-	$header_bg = get_theme_mod( 'block_lite_colors_header', '#ffffff' );
-	$footer_bg = get_theme_mod( 'block_lite_colors_footer', '#f4f4f4' );
+	$header_bg    = get_theme_mod( 'block_lite_colors_header', '#ffffff' );
+	$footer_bg    = get_theme_mod( 'block_lite_colors_footer', '#f4f4f4' );
 
 	?>
 
@@ -28,7 +28,7 @@ function block_lite_custom_styles() {
 	#wrapper .footer {
 		<?php
 		if ( $footer_bg ) {
-			echo 'background-color: ' .esc_html( $footer_bg ). ';';
+			echo 'background-color: ' . esc_html( $footer_bg ) . ';';
 		};
 		?>
 	}
@@ -36,7 +36,7 @@ function block_lite_custom_styles() {
 	.block-header-inactive #header {
 		<?php
 		if ( $header_bg ) {
-			echo 'background-color: ' .esc_html( $header_bg ). ';';
+			echo 'background-color: ' . esc_html( $header_bg ) . ';';
 		};
 		?>
 	}
