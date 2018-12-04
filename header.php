@@ -105,6 +105,7 @@
 
 						<?php if ( have_posts() && is_category() ) { ?>
 							<h1 class="text-center"><?php the_archive_title(); ?></h1>
+							<?php the_archive_description( '<p class="archive-description">', '</p>' ); ?>
 						<?php } ?>
 
 					</div>

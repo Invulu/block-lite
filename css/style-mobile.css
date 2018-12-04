@@ -245,6 +245,9 @@
 		width: calc(100% + 72px);
 		margin-left: -36px;
 	}
+	.post-meta .post-navigation {
+		width: 100%;
+	}
 	.post-meta .previous-post,
 	.post-meta .next-post,
 	.post-meta .post-information,

@@ -2,15 +2,15 @@
 
 	Theme Name: Block Lite
 	Theme URI: https://organicthemes.com/theme/block-lite/
-	Description: The Block Lite theme features a modern and responsive design with a block style layout for blog posts. It's developed to work seamlessly with the Gutenberg editor and custom blocks. The theme options are located within the WordPress customizer for a simple setup process.
+	Description: The Block Lite theme features a modern and responsive design with a block style layout for blog posts. It's developed to work seamlessly with the WordPress 5.0 Gutenberg editor and custom blocks. The theme options are located within the WordPress customizer for a simple setup process. Block Lite is perfect for photography blogs, portfolios, writers, and more. Additionally, the theme is compatible with our Builder Widgets page builder plugin for creating dynamic page layouts.
 	Author: Organic Themes
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.0.7
+	Version: 1.1.1
 	Text Domain: block-lite
 	Domain Path: /languages/
-	Tags: blog, one-column, two-columns, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
+	Tags: news, portfolio, photography, one-column, two-columns, three-columns, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 
 	The CSS, XHTML and Design are released under the GPL:
 	http://www.opensource.org/licenses/gpl-license.php
@@ -128,7 +128,7 @@ hr {
 }
 ol, ul {
 	list-style: none;
-	margin: 6px 0px;
+	margin: 12px 0px;
 	padding: 0px 0px 0px 12px;
 }
 ol li {
@@ -149,10 +149,11 @@ ul ol li, ul ol ul ol li {
 ol ul li, ol ul ol ul li {
 	list-style-type: square;
 }
-blockquote {
+blockquote,
+blockquote.wp-block-quote {
 	font-size: 130%;
 	line-height: 1.5;
-	margin: 18px 0px;
+	margin: 24px 0px;
 	padding: 6px 18px;
 	border-left: 2px solid rgba(0, 0, 0, 0.12);
 }
@@ -168,7 +169,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-code, pre {
+code, pre, .wp-block-code {
 	background: rgba(0, 0, 0, 0.04);
 	font-family: Courier, sans-serif;
 	line-height: 1.4;
@@ -696,13 +697,13 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 }
 .block-post-layout {
 	width: 100%;
-	width: 100vw;
+	max-width: 100%;
 	position: relative;
 	overflow: auto;
 }
 .home.block-header-inactive.block-no-logo .post-holder:first-child {
 	float: none;
-	width: 100vw;
+	width: 100%;
 	min-height: 480px;
 }
 .home.block-header-inactive.block-no-logo .post-holder:first-child .featured-img .img-title {
@@ -713,7 +714,7 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 }
 .post-holder {
 	float: left;
-	width: 33.33vw;
+	width: 33.33%;
 	height: 33.33vw;
 	margin: 0px;
 }
@@ -832,7 +833,10 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 }
 .post-meta .post-information:first-child,
 .post-meta .post-information:nth-child(2):last-child {
-	width: 75vw;
+	width: 75%;
+}
+.post-meta .post-navigation {
+	width: 25%;
 }
 .post-meta .previous-post,
 .post-meta .next-post {
@@ -845,7 +849,7 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 	background-color: rgba(0, 0, 0, 0.04);
 	background-size: cover;
 	background-position: center center;
-	width: 25vw;
+	width: 100%;
 	height: 25vw;
 	padding: 24px 36px;
 	box-sizing: border-box;
@@ -883,7 +887,7 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 	justify-content: center;
 	flex-direction: column;
 	background-color: rgba(0, 0, 0, 0.04);
-	width: 50vw;
+	width: 50%;
 	height: 25vw;
 	padding: 24px;
 	box-sizing: border-box;
@@ -1934,7 +1938,8 @@ input[type=submit]:hover, #submit:hover, input#submit:hover, input.button:hover,
 20. Tables
 ************************************************/
 
-table {
+table,
+table.wp-block-table {
 	width: 100%;
 	margin: 18px 0px;
 	padding: 0px;
@@ -1942,15 +1947,20 @@ table {
 	border-spacing: 0;
 }
 table thead,
-table tfoot {
+table tfoot,
+table.wp-block-table thead,
+table.wp-block-table tfoot {
 	border: 1px solid #dddddd;
 	border: 1px solid rgba(0, 0, 0, 0.12);
 }
 table thead th,
-table tfoot td {
+table tfoot td,
+table.wp-block-table thead th,
+table.wp-block-table tfoot td {
 	border: none;
 }
-table th {
+table th,
+table.wp-block-table th {
 	background: #eeeeee;
 	background: rgba(0, 0, 0, 0.08);
 	font-size: 1.2rem;
@@ -1961,12 +1971,20 @@ table th {
 	border: 1px solid rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 }
-table td {
+table td,
+table.wp-block-table td {
 	padding: 12px;
 	margin: 0px;
 	border: 1px solid #dddddd;
 	border: 1px solid rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
+}
+table.wp-block-table.is-style-stripes {
+	border-collapse: collapse;
+}
+table.wp-block-table.is-style-stripes td {
+	border: 1px solid #dddddd;
+	border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 /************************************************
@@ -2230,17 +2248,44 @@ a, button, .button, #submit, #searchsubmit {
 25.	Gutenberg
 ************************************************/
 
+div[class*="wp-block"],
+figure[class*="wp-block"],
+blockquote[class*="wp-block"] {
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
 .wp-block-image {
 	max-width: none;
-	margin: 16px auto;
+	margin: 32px auto;
 	padding: 0px;
+}
+.wp-block-image .aligncenter,
+.wp-block-image .alignleft,
+.wp-block-image .alignright,
+.wp-block-image.is-resized {
+	display: inline;
+}
+.wp-block-image .aligncenter > figcaption,
+.wp-block-image .alignleft > figcaption,
+.wp-block-image .alignright > figcaption,
+.wp-block-image.is-resized > figcaption {
+	display: block;
+}
+.wp-block-gallery .blocks-gallery-item {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px;
+}
+.wp-block-gallery .blocks-gallery-image {
+	margin-left: 0px;
+	margin-right: 0px;
 }
 .wp-block-gallery .blocks-gallery-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption {
 	box-sizing: border-box;
 }
 .wp-block-cover-image {
-	margin: 16px auto;
+	margin: 32px auto;
 	padding: 24px 0px;
 }
 .wp-block-cover-image.has-background-dim,
@@ -2256,7 +2301,19 @@ a, button, .button, #submit, #searchsubmit {
 	display: block;
 	position: relative;
 }
-.wp-block-gallery,
-.wp-block-gallery li {
-	padding: 0px;
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	padding-left: 18px;
+	border-left: 2px solid rgba(0, 0, 0, 0.12);
+}
+.wp-block-quote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer {
+	display: block;
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 0.85rem;
+	margin-top: 12px;
+}
+.wp-block-quote cite::before,
+.wp-block-quote footer::before {
+	content: '— '
 }

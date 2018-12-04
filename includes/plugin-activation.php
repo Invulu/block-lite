@@ -63,6 +63,11 @@ function block_lite_register_required_plugins() {
 			'slug'     => 'organic-customizer-widgets', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
 		),
+		array(
+			'name'     => 'Organic Profile Block', // The plugin name.
+			'slug'     => 'organic-profile-block', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+		),
 
 	);
 
