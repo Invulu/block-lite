@@ -1,6 +1,6 @@
 === Block Lite ===
 
-Version: 1.1.1
+Version: 1.1.2
 Contributors: organicthemes, itsdavidmorgan
 Tags: blog, portfolio, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 Requires at least: 4.8
@@ -62,6 +62,10 @@ Block Lite is distributed under the terms of the GNU GPL
 * jquery.bgBrightness.js, Released under the WTFPL license, https://organicthemes.com
 
 == Changelog ==
+
+== 1.1.2 ==
+* Fixed issue with header video display
+* Style fix for Gutenberg gallery
 
 == 1.1.1 ==
 * Minor Gutenberg style tweaks

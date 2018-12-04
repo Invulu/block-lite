@@ -7,7 +7,7 @@
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.1.1
+	Version: 1.1.2
 	Text Domain: block-lite
 	Domain Path: /languages/
 	Tags: news, portfolio, photography, one-column, two-columns, three-columns, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
@@ -2272,8 +2272,6 @@ blockquote[class*="wp-block"] {
 	display: block;
 }
 .wp-block-gallery .blocks-gallery-item {
-	margin-left: 0px;
-	margin-right: 0px;
 	padding: 0px;
 }
 .wp-block-gallery .blocks-gallery-image {

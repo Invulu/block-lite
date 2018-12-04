@@ -191,10 +191,23 @@
 .single-product.block-has-img #nav-bar {
 	position: relative;
 }
+.block-header-video-active #masthead {
+	position: absolute;
+}
+.block-header-video-active #custom-header {
+	height: auto;
+	min-height: auto;
+}
 .block-header-video-active .wp-custom-header {
 	position: relative;
+	background-color: #000000;
+	background-attachment: scroll;
 	padding-bottom: 56.25%; /* 16:9 */
+	min-height: auto;
 	height: 0;
+}
+.block-header-video-active .wp-custom-header img {
+	display: none;
 }
 .block-header-video-active .wp-custom-header iframe {
 	position: absolute;
@@ -202,6 +215,8 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	pointer-events: none;
+	cursor: pointer;
 }
 .block-header-video-active .wp-custom-header::before {
 	content: '';
