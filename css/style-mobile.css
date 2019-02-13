@@ -70,7 +70,7 @@
 	Tablet Styles
 ************************************************/
 
-@media handheld, only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
 
 	/* Typography Tablet */
 
@@ -84,6 +84,13 @@
 
 	/* Theme Tablet */
 
+	.wp-custom-header {
+		height: 100%;
+		background-attachment: scroll;
+	}
+	.block-singular .banner-img {
+		background-attachment: scroll;
+	}
 	#navigation {
 		display: none !important;
 	}
@@ -202,7 +209,7 @@
 	Phone Styles
 ************************************************/
 
-@media handheld, only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
 
 	/* Typography Phone */
 
@@ -288,9 +295,6 @@
 
 	.banner-img {
 		max-height: 640px;
-	}
-	.block-singular .banner-img {
-		background-attachment: scroll;
 	}
 	.alignfull, .alignwide {
 		width: calc(100% + 72px);
