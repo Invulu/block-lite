@@ -191,7 +191,7 @@ add_action( 'admin_menu', 'block_lite_upgrade_link' );
 */
 
 /** Function block_lite_admin_notice */
-function block_lite_admin_notice() {
+function block_lite_admin_notice_follow() {
 	if ( ! PAnD::is_admin_notice_active( 'notice-block-lite-30' ) ) {
 		return;
 	}
@@ -257,8 +257,28 @@ function block_lite_admin_notice() {
 	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 	<?php
 }
+
+/** Function block_lite_admin_notice_review */
+function block_lite_admin_notice_review() {
+	if ( ! PAnD::is_admin_notice_active( 'notice-block-lite-review-30' ) ) {
+		return;
+	}
+	?>
+
+	<div data-dismissible="notice-block-lite-review-30" class="notice updated is-dismissible">
+
+		<p><?php printf( wp_kses_post( '🍍 Aloha! Mahalo for using the <a href="%1$s" target="_blank">Block Lite</a> theme. As a <b>BIG</b> favor, could you please take a moment to <a href="%2$s" target="_blank">leave a positive review</a> for this theme. It takes a great deal of time to build and maintain a free product such as this, and your support is greatly appreciated.', 'block-lite' ), 'https://organicthemes.com/theme/block-lite/', 'https://wordpress.org/support/theme/block-lite/reviews/#new-post' ); ?></p>
+		<p><b><?php esc_html_e( '&mdash; David Morgan', 'block-lite' ); ?></b><br/>
+		<b><?php printf( wp_kses_post( 'Co-founder of <a href="%1$s" target="_blank">Organic Themes</a>', 'block-lite' ), 'https://organicthemes.com/' ); ?></b></p>
+
+	</div>
+
+	<?php
+}
+
 add_action( 'admin_init', array( 'PAnD', 'init' ) );
-add_action( 'admin_notices', 'block_lite_admin_notice' );
+add_action( 'admin_notices', 'block_lite_admin_notice_follow', 10 );
+add_action( 'admin_notices', 'block_lite_admin_notice_review', 10 );
 
 require( get_template_directory() . '/includes/persist-admin-notices-dismissal/persist-admin-notices-dismissal.php' );
 
