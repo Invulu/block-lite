@@ -184,6 +184,37 @@
 
 /* Body Class */
 
+.block-sidebar-inactive.block-singular .alignfull {
+	width: 100vw;
+	left: calc(-50vw + 50%);
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.block-sidebar-inactive.block-singular .alignwide {
+	width: calc(100% + 120px);
+	left: -60px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.block-sidebar-inactive.block-singular .full-width .alignwide {
+	width: calc(100% + 96px);
+	left: -48px;
+}
+.block-sidebar-inactive.block-singular .alignfull .alignfull,
+.block-sidebar-inactive.block-singular .alignwide .alignwide,
+.block-sidebar-inactive.block-singular .alignfull .alignwide,
+.block-sidebar-inactive.block-singular .alignwide .alignfull {
+	max-width: 100%;
+	left: auto;
+}
+.block-sidebar-inactive.block-singular .wp-block-columns.alignwide {
+	padding-left: 24px;
+	padding-right: 24px;
+}
+.block-sidebar-inactive.block-singular .wp-block-columns.alignfull {
+	padding-left: 36px;
+	padding-right: 36px;
+}
 .block-header-active #nav-bar,
 .block-has-img #nav-bar {
 	position: absolute;

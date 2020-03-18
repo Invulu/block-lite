@@ -11,7 +11,8 @@
 
 "use strict";
 
-	$.fn.bgBrightness = function(contentSelectors, threshold = 160){
+	$.fn.bgBrightness = function(contentSelectors, threshold){
+	threshold = typeof threshold === "undefined" ? 160 : threshold;
 
 		// Background Object
 		var $el = this;

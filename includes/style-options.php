@@ -19,11 +19,11 @@ function block_lite_custom_styles() {
 
 	<style>
 
+	<?php if ( ! empty( $header_image ) ) { ?>
 	.wp-custom-header {
-		<?php if ( ! empty( $header_image ) ) { ?>
 			background-image: url('<?php header_image(); ?>');
-		<?php } ?>
 	}
+	<?php } ?>
 
 	#wrapper .footer {
 		<?php

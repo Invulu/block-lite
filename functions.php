@@ -123,11 +123,11 @@ if ( ! function_exists( 'block_lite_enqueue_scripts' ) ) {
 		// Resgister Scripts.
 		wp_register_script( 'jquery-sidr', get_template_directory_uri() . '/js/jquery.sidr.js', array( 'jquery' ), '1.0' );
 		wp_register_script( 'jquery-fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '1.0' );
-		wp_register_script( 'jquery-brightness', get_template_directory_uri() . '/js/jquery.bgBrightness.js', array( 'jquery' ), '1.0' );
+		wp_register_script( 'jquery-bg-brightness', get_template_directory_uri() . '/js/jquery.bgBrightness.js', array( 'jquery' ), '1.0' );
 
 		// Enqueue Scripts.
 		wp_enqueue_script( 'hoverIntent' );
-		wp_enqueue_script( 'block-lite-custom', get_template_directory_uri() . '/js/jquery.custom.js', array( 'jquery', 'jquery-sidr', 'jquery-fitvids', 'jquery-brightness' ), '1.0', true );
+		wp_enqueue_script( 'block-lite-custom', get_template_directory_uri() . '/js/jquery.custom.js', array( 'jquery', 'jquery-sidr', 'jquery-fitvids', 'jquery-bg-brightness' ), '1.0', true );
 
 		// Load single scripts only on single pages.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -155,14 +155,29 @@ if ( ! function_exists( 'block_lite_enqueue_admin_scripts' ) ) {
 -------------------------------------------------------------------------------------------------------
 */
 
-/**
- * Enqueue WordPress theme styles within Gutenberg.
- */
-function block_lite_gutenberg_styles() {
-	// Load the theme styles within Gutenberg.
-	wp_enqueue_style( 'block-lite-gutenberg', get_theme_file_uri( '/css/gutenberg.css' ), false, '1.0', 'all' );
+if ( ! function_exists( 'block_lite_gutenberg_styles' ) ) {
+
+	/**
+	 * Enqueue WordPress theme styles within Gutenberg.
+	 */
+	function block_lite_gutenberg_styles() {
+		// Load the theme styles within Gutenberg.
+		wp_enqueue_style(
+			'block-lite-gutenberg',
+			get_theme_file_uri( '/css/gutenberg.css' ),
+			false,
+			'1.0',
+			'all'
+		);
+		wp_enqueue_style(
+			'font-awesome',
+			get_template_directory_uri() . '/css/font-awesome.css',
+			array( 'block-lite-gutenberg' ),
+			'1.0'
+		);
+	}
 }
-add_action( 'enqueue_block_editor_assets', 'block_lite_gutenberg_styles' );
+add_action( 'enqueue_block_editor_assets', 'block_lite_gutenberg_styles', 10 );
 
 /*
 -------------------------------------------------------------------------------------------------------
