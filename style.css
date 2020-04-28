@@ -7,7 +7,7 @@
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.2
+	Version: 1.2.1
 	Text Domain: block-lite
 	Domain Path: /languages/
 	Tags: news, portfolio, photography, one-column, two-columns, three-columns, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
@@ -75,8 +75,8 @@ body#tinymce {
 
 p {
 	word-wrap: break-word;
-	padding: 0px;
 	margin: 32px 0px;
+	padding: 0px;
 }
 p:empty {
 	display: none;
@@ -706,6 +706,7 @@ ul.menu li li ul li[aria-expanded="true"] ul {
 	margin: 0px auto;
 	padding: 0px 48px;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 .content:before, .content:after,
 .post-holder:before, .post-holder:after {
@@ -1496,7 +1497,7 @@ p.alignwide {
 	padding: 0px;
 }
 .textwidget p {
-	padding: 8px 0px;
+	margin: 12px 0px;
 }
 .tagcloud {
 	line-height: 1.2;
@@ -1787,7 +1788,7 @@ p.alignwide {
 	border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 .commentlist p {
-	margin: 10px 0px;
+	margin: 12px 0px;
 	padding: 0px;
 }
 #respond {
@@ -1806,7 +1807,7 @@ p.alignwide {
 	margin: 0px;
 }
 #commentform p {
-	padding: 6px 0px;
+	margin: 12px 0px;
 }
 #commentform .form-submit {
 	padding-top: 12px;
@@ -1870,8 +1871,10 @@ p.logged-in-as {
 19.	Buttons
 ************************************************/
 
-button, .button, a.button, .reply a, #searchsubmit, #prevLink a, #nextLink a, #submit,
-input[type=submit], input#submit, input.button, #wrapper #infinite-handle span {
+button, button[type=submit], .button, a.button, #comments .reply a, .wp-block-button a,
+#searchsubmit, #prevLink a, #prevLink a:link, #prevLink a:visited, #nextLink a,
+#submit, input[type=submit], input#submit, input.button, #infinite-handle span button,
+.sidr-class-site-header-cart a.sidr-class-button {
 	display: inline-block;
 	position: relative;
 	background-color: #b58112;
@@ -1890,8 +1893,10 @@ input[type=submit], input#submit, input.button, #wrapper #infinite-handle span {
 	box-sizing: border-box;
 	-webkit-appearance: none;
 }
-button:hover, .button:hover, a.button:hover, .reply a:hover, #searchsubmit:hover, #prevLink a:hover, #nextLink a:hover,
-input[type=submit]:hover, #submit:hover, input#submit:hover, input.button:hover, #wrapper #infinite-handle span:hover {
+button:hover, button[type=submit]:hover, .button:hover, a.button:hover, #comments .reply a:hover, .wp-block-button a:hover, .wp-block-search__button:hover,
+#searchsubmit:hover, #prevLink a:hover, #nextLink a:hover, input[type=submit]:hover,
+#submit:hover, input#submit:hover, input.button:hover, #infinite-handle span button:hover,
+.sidr-class-site-header-cart a.sidr-class-button:hover {
 	background-color: #d8980f;
 	color: #ffffff !important;
 	text-shadow: -1px -1px 0px rgba(0, 0, 0, .12);
@@ -1904,52 +1909,48 @@ input[type=submit]:hover, #submit:hover, input#submit:hover, input.button:hover,
 ************************************************/
 
 table,
-table.wp-block-table {
+.wp-block-table table {
 	width: 100%;
-	margin: 18px 0px;
+	text-align: left;
+	margin: 32px 0px;
 	padding: 0px;
-	border-collapse: collapse;
+	border: 3px solid rgba(0, 0, 0, 0.12);
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
 	border-spacing: 0;
+	border-radius: 4px;
+}
+table p,
+table form,
+table ul,
+table li {
+	margin: 6px 0px;
+	padding: 0px;
 }
 table thead,
-table tfoot,
-table.wp-block-table thead,
-table.wp-block-table tfoot {
+table tfoot {
 	border: 1px solid #dddddd;
-	border: 1px solid rgba(0, 0, 0, 0.12);
 }
-table thead th,
-table tfoot td,
-table.wp-block-table thead th,
-table.wp-block-table tfoot td {
-	border: none;
+table tbody tr:nth-child(odd) {
+	background: rgba(0, 0, 0, 0.04);
 }
 table th,
-table.wp-block-table th {
-	background: #eeeeee;
-	background: rgba(0, 0, 0, 0.08);
-	font-size: 1.2rem;
-	text-align: center;
+.wp-block-table th {
+	font-size: 1.1rem;
+	text-transform: uppercase;
 	margin: 0px;
 	padding: 12px;
-	border: 1px solid #dddddd;
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-top: 1px solid #dddddd;
 	box-sizing: border-box;
 }
 table td,
-table.wp-block-table td {
+.wp-block-table td {
 	padding: 12px;
 	margin: 0px;
-	border: 1px solid #dddddd;
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-top: 1px solid #dddddd;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
 	box-sizing: border-box;
-}
-table.wp-block-table.is-style-stripes {
-	border-collapse: collapse;
-}
-table.wp-block-table.is-style-stripes td {
-	border: 1px solid #dddddd;
-	border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 /************************************************
@@ -1960,7 +1961,8 @@ form {
 	display: block;
 }
 form p {
-	padding: 6px 0px;
+	margin: 8px 0px;
+	padding: 0px;
 }
 form div {
 	display: block;
@@ -2008,13 +2010,13 @@ form textarea {
 	display: block;
 	max-width: 100%;
 	box-sizing: border-box;
-	background-color: rgba(0, 0, 0, 0.04);
+	background-color: #f9f9f9;
 	font-family: inherit;
 	font-size: 1rem;
 	line-height: 1.4;
 	margin: 6px 0px;
 	padding: 8px;
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border: 2px solid rgba(0, 0, 0, 0.12);
 	border-radius: 3px;
 }
 form input[type='url'],
@@ -2047,7 +2049,7 @@ address {
 }
 select {
 	display: block;
-	background-color: rgba(0, 0, 0, 0.04);
+	background-color: #f9f9f9;
 	color: rgba(0, 0, 0, 0.6);
 	color: #666666;
 	text-shadow: 0 0 0 rgba(0, 0, 0, 0.4);
@@ -2059,7 +2061,7 @@ select {
 	padding: 6px 46px 6px 8px !important;
 	box-shadow: none;
 	border-radius: 3px;
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border: 2px solid rgba(0, 0, 0, 0.12);
 	-webkit-transition: all .25s ease-in-out;
 	-moz-transition: all .25s ease-in-out;
 	-o-transition: all .25s ease-in-out;
@@ -2076,7 +2078,7 @@ select {
 	background-size:
 		5px 5px,
 		5px 5px,
-		1px 24px;
+		1px 28px;
 	background-repeat: no-repeat;
 
 	/* reset */
@@ -2213,15 +2215,13 @@ a, button, .button, #submit, #searchsubmit {
 26.	Gutenberg
 ************************************************/
 
-.wp-block-image,
-.wp-block-table {
+/* Media */
+
+.wp-block-image {
 	max-width: none;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px;
-}
-.wp-block-table.is-style-stripes {
-	border-bottom: none;
 }
 .wp-block-image img {
 	display: block;
@@ -2240,6 +2240,7 @@ a, button, .button, #submit, #searchsubmit {
 .wp-block-gallery .blocks-gallery-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption {
 	box-sizing: border-box;
+	border: none;
 }
 .wp-block-cover.alignfull,
 .wp-block-cover-image.alignfull,
@@ -2248,31 +2249,29 @@ a, button, .button, #submit, #searchsubmit {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-.wp-block-cover h2 {
-	padding: 0px;
-}
 .wp-block-cover .wp-block-cover__inner-container {
-	padding: 0px 36px;
+	padding: 36px;
 	box-sizing: border-box;
+}
+.wp-block-cover .wp-block-cover__inner-container p {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+.wp-block-cover .wp-block-cover__inner-container > :first-child {
+	margin-top: 0px;
+}
+.wp-block-cover .wp-block-cover__inner-container > :last-child {
+	margin-bottom: 0px;
 }
 .wp-block-cover.alignfull .wp-block-cover__inner-container,
 .wp-block-cover.alignwide .wp-block-cover__inner-container {
 	position: relative;
 	top: 0;
 	width: 100%;
-	max-width: 880px;
 	margin: 0px auto;
 	transition: all 1s ease-in-out;
 	transition-delay: 0.5s;
 	z-index: 7;
-}
-.no-js .entry-content > .wp-block-cover.alignfull .wp-block-cover__inner-container {
-	top: 24px;
-	opacity: 0;
-}
-.entry-content > .wp-block-cover.alignfull:first-child .wp-block-cover__inner-container {
-	margin-top: 220px;
-	margin-bottom: 120px;
 }
 .wp-block-cover-image .wp-block-cover-image-text,
 .wp-block-cover-image .wp-block-cover-text,
@@ -2282,24 +2281,62 @@ a, button, .button, #submit, #searchsubmit {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* Buttons */
+
 .wp-block-button {
 	position: relative;
 	box-sizing: border-box;
+}
+.wp-block-button.alignleft {
+	float: none;
+	text-align: left;
+}
+.wp-block-button.alignright {
+	float: none;
+	text-align: right;
 }
 .wp-block-button.alignwide a {
 	display: block;
 }
 .wp-block-button.is-style-outline a {
+	background: inherit;
 	box-shadow: none;
 	text-shadow: none;
+	border-color: inherit;
+	border-width: inherit;
 }
-.has-background-dim .wp-block-button.is-style-outline a {
-	color: rgba(255, 255, 255, 0.6);
-	border-color: rgba(255, 255, 255, 0.6);
+.wp-block-button.is-style-outline a:not(.has-text-color) {
+	color: inherit;
+}
+.wp-block-button.is-style-outline a:hover {
+	color: inherit;
+	background: inherit;
+	border-width: inherit;
+	border-color: inherit;
 }
 .has-background-dim .wp-block-button.is-style-outline a:hover {
 	color: #ffffff;
 	border-color: #ffffff;
+}
+
+/* Quotes */
+
+.wp-block-quote.is-style-large p {
+	font-size: 160%;
+	line-height: 1.5;
+}
+.wp-block-quote.is-style-large.has-text-align-center cite {
+	text-align: center;
+}
+.wp-block-quote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer {
+	display: block;
+	font-size: 0.85rem;
+	font-style: normal;
+	margin-top: 12px;
+	opacity: 0.6;
 }
 .wp-block-pullquote {
 	position: relative;
@@ -2344,28 +2381,42 @@ a, button, .button, #submit, #searchsubmit {
 .wp-block-pullquote blockquote p {
 	margin-bottom: 12px;
 }
-.wp-block-pullquote__citation,
-.wp-block-pullquote blockquote cite {
+.wp-block-pullquote blockquote cite,
+.wp-block-pullquote .wp-block-pullquote__citation {
 	font-size: 90%;
 	font-style: normal;
 	text-transform: uppercase;
 	opacity: 0.6;
 }
-.wp-block-audio {
-	margin-left: 0px;
-	margin-right: 0px;
+
+/* Columns */
+
+.wp-block-columns {
+	margin-bottom: 0px;
+	box-sizing: border-box;
 }
-.wp-block-audio audio {
+.wp-block-columns.alignwide,
+.wp-block-columns.alignfull {
+	padding-left: 36px;
+	padding-right: 36px;
+}
+.wp-block-column > :first-child {
+	margin-top: 0px;
+}
+
+/* Jetpack */
+
+div[class*="wp-block"] form.contact-form input[type="text"],
+div[class*="wp-block"] form.contact-form input[type="email"],
+div[class*="wp-block"] form.contact-form input[type="tel"],
+div[class*="wp-block"] form.contact-form input[type="url"] {
 	width: 100%;
 }
-.wp-block-social-links .wp-social-link {
-	padding: 0px;
+div[class*="wp-block"] form.contact-form label span {
+	float: right;
 }
-.wp-block-social-links .wp-social-link a {
-	color: inherit;
-}
-.wp-block-columns {
-	box-sizing: border-box;
+div[class*="wp-block"] form.contact-form .contact-submit {
+	margin: 0px;
 }
 .wp-block-jetpack-email,
 .wp-block-jetpack-phone,
@@ -2398,7 +2449,42 @@ a, button, .button, #submit, #searchsubmit {
 	max-width: 100%;
 	padding: 0px;
 }
-.entry-content > div[class*="wp-block"].alignfull:first-child,
-.entry-content > figure[class*="wp-block"].alignfull:first-child {
+
+/* Misc */
+
+.wp-block-table {
+	max-width: none;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+.wp-block-table.is-style-stripes {
+	border-bottom: none;
+}
+.wp-block-audio {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.wp-block-audio audio {
+	width: 100%;
+}
+.wp-block-search .wp-block-search__button {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.wp-block-separator {
+	margin: 36px auto;
+	border: none;
+}
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: 100px;
+}
+.wp-block-social-links .wp-social-link {
+	padding: 0px;
+}
+.wp-block-social-links .wp-social-link a {
+	color: inherit;
+}
+.entry-content > .alignfull:first-child {
 	margin-top: 0px;
 }

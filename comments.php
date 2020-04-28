@@ -17,28 +17,36 @@
 
 	<div class="comments-wrapper">
 
-		<?php if ( post_password_required() ) : ?>
+	<?php if ( post_password_required() ) : ?>
 			<p class="nopassword"><?php esc_html_e( 'This post is password protected. Enter the password to view any comments.', 'block-lite' ); ?></p>
 		</div><!-- #comments -->
-			<?php return; ?><?php endif; ?>
+			<?php
 
-		<?php if ( have_comments() ) { ?>
+				/*
+				* Stop the rest of comments.php from being processed,
+				* but don't kill the script entirely -- we still have
+				* to fully load the template.
+				*/
+				return;
+			endif;
+?>
+
+		<?php // You can start editing here -- including this comment! ?>
+
+		<?php if ( have_comments() ) : ?>
 			<h3 id="comments-title">
 				<?php
 				$count = get_comments_number();
-				$title = get_the_title();
-				if ( 1 === $count ) {
-					esc_html__( 'One Comment', 'block-lite' );
+				if ( '1' === $count ) {
+					/* translators: 1: Post title. */
+					printf( esc_html__( 'One Comment on &ldquo;%1$s&rdquo;', 'block-lite' ), esc_html( get_the_title() ) );
 				} else {
-					printf( esc_html__( '%1$s Comments', 'block-lite' ), $count );
+					/* translators: 1: Number of comments. 2: Post title. */
+					printf( esc_html__( '%1$s Comments on &ldquo;%2$s&rdquo;', 'block-lite' ), esc_html( $count ), esc_html( get_the_title() ) );
 				}
 				?>
 			</h3>
-		<?php } elseif ( comments_open() ) { ?>
-			<h3 id="comments-title"><?php esc_html_e( 'Leave A Comment', 'block-lite' ); ?></h3>
-		<?php } ?>
 
-		<?php if ( have_comments() ) : ?>
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 			<nav id="comment-nav-above">
 				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment Navigation', 'block-lite' ); ?></h1>
@@ -69,7 +77,14 @@
 			</nav>
 		<?php endif; // Check for comment navigation. ?>
 
-		<?php elseif ( ! comments_open() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+			<?php
+
+			/*
+			* If there are no comments and comments are closed, let's leave a little note, shall we?
+			* But we don't want the note on pages or post types that do not support comments.
+			*/
+			elseif ( ! comments_open() && post_type_supports( get_post_type(), 'comments' ) ) :
+				?>
 			<p class="nocomments"><?php esc_html_e( 'Comments are closed.', 'block-lite' ); ?></p>
 		<?php endif; ?>
 
