@@ -23,6 +23,8 @@
 
 <body <?php body_class(); ?>>
 
+<?php wp_body_open(); ?>
+
 <!-- BEGIN #wrapper -->
 <div id="wrapper">
 
@@ -45,7 +47,7 @@
 		<?php if ( has_nav_menu( 'main-menu' ) ) { ?>
 
 			<!-- BEGIN #navigation -->
-			<nav id="navigation" class="navigation-main" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'block-lite' ); ?>">
+			<nav id="navigation" class="navigation-main" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'block-lite' ); ?>">
 
 				<?php
 				wp_nav_menu( array(

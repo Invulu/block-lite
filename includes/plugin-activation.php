@@ -52,60 +52,35 @@ add_action( 'tgmpa_register', 'block_lite_register_required_plugins' );
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
 function block_lite_register_required_plugins() {
+	/*
+	 * Array of plugin arrays. Required keys are name and slug.
+	 * If the source is NOT from the .org repo, then source is also required.
+	 */
+	$plugins = array(
 
-	if ( class_exists( 'Organic_Widgets_Pro' ) ) {
-		/*
-		 * Array of plugin arrays. Required keys are name and slug.
-		 * If the source is NOT from the .org repo, then source is also required.
-		 */
-		$plugins = array(
+		array(
+			'name'     => 'Profile Block', // The plugin name.
+			'slug'     => 'organic-profile-block', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+		),
+		array(
+			'name'     => 'Contact Form by WPForms', // The plugin name.
+			'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+		),
+		( ! ( class_exists( 'Organic_Widgets_Pro' ) || class_exists( 'Organic_Widgets' ) ) ? array(
+			'name'     => 'Organic Builder Widgets', // The plugin name.
+			'slug'     => 'organic-customizer-widgets', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+		) : '' ),
+		( ! class_exists( 'Organic_Blocks_Bundle' ) ? array(
+			'name'         => 'Organic Blocks Bundle', // The plugin name.
+			'slug'         => 'organic-blocks-bundle', // The plugin slug (typically the folder name).
+			'required'     => false, // If false, the plugin is only 'recommended' instead of required.
+			'external_url' => 'https://organicthemes.com/blocks/',
+		) : '' ),
 
-			array(
-				'name'     => 'Profile Block', // The plugin name.
-				'slug'     => 'organic-profile-block', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-			array(
-				'name'     => 'Widget Area Block', // The plugin name.
-				'slug'     => 'organic-widget-area-block', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-			array(
-				'name'     => 'Contact Form by WPForms', // The plugin name.
-				'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-
-		);
-
-	} else {
-
-		$plugins = array(
-
-			array(
-				'name'     => 'Profile Block', // The plugin name.
-				'slug'     => 'organic-profile-block', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-			array(
-				'name'     => 'Organic Builder Widgets', // The plugin name.
-				'slug'     => 'organic-customizer-widgets', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-			array(
-				'name'     => 'Widget Area Block', // The plugin name.
-				'slug'     => 'organic-widget-area-block', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-			array(
-				'name'     => 'Contact Form by WPForms', // The plugin name.
-				'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name).
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			),
-
-		);
-
-	}
+	);
 
 	/*
 	 * Array of configuration settings. Amend each line as needed.
@@ -117,7 +92,7 @@ function block_lite_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'block-lite',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'block-lite',            // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'  => true,                    // Show admin notices or not.

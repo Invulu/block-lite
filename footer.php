@@ -54,7 +54,7 @@
 
 					<?php if ( '' !== get_theme_mod( 'block_lite_footer_text' ) ) { ?>
 
-						<p><span class="footer-site-info"><?php echo esc_attr( get_theme_mod( 'block_lite_footer_text' ) ); ?></span></p>
+						<p><span class="footer-site-info"><?php echo wp_kses_post( get_theme_mod( 'block_lite_footer_text' ) ); ?></span></p>
 
 					<?php } else { ?>
 
@@ -66,7 +66,7 @@
 
 				<?php if ( has_nav_menu( 'social-menu' ) ) { ?>
 
-				<nav class="align-right" role="navigation" aria-label="<?php esc_html_e( 'Social Navigation', 'block-lite' ); ?>">
+				<nav class="align-right" role="navigation" aria-label="<?php esc_attr_e( 'Social Navigation', 'block-lite' ); ?>">
 
 					<?php
 					wp_nav_menu( array(

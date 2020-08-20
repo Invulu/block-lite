@@ -7,7 +7,9 @@
 	Author URI: https://organicthemes.com
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Version: 1.2.1
+	Version: 1.2.2
+	Tested up to: 5.5
+	Requires PHP: 5.3.29
 	Text Domain: block-lite
 	Domain Path: /languages/
 	Tags: news, portfolio, photography, one-column, two-columns, three-columns, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
@@ -188,7 +190,7 @@ blockquote p,
 	opacity: 0.6;
 }
 code, pre, .wp-block-code {
-	background: rgba(0, 0, 0, 0.04);
+	background: #f4f4f4;
 	font-family: Courier, sans-serif;
 	line-height: 1.4;
 	margin: 24px 0px;
@@ -205,6 +207,7 @@ pre {
 	white-space: pre-line;
 }
 pre code {
+	margin: 0px;
 	padding: 0px;
 	border: none;
 	box-shadow: none;
@@ -1322,26 +1325,22 @@ img.hide-img {
 	padding: 0px;
 }
 img.aligncenter,
-.wp-block-image.aligncenter,
 .wp-block-image .aligncenter {
 	text-align: center;
 	margin: 16px auto;
 	padding: 0px;
 }
 img.alignnone,
-.wp-block-image.alignnone,
 .wp-block-image .alignnone {
 	margin: 16px 0px;
 	padding: 0px;
 }
 img.alignright,
-.wp-block-image.alignright,
 .wp-block-image .alignright {
 	margin: 16px 0px 16px 24px;
 	padding: 0px;
 }
 img.alignleft,
-.wp-block-image.alignleft,
 .wp-block-image .alignleft {
 	margin: 16px 24px 16px 0px;
 	padding: 0px;
@@ -1366,10 +1365,13 @@ p.alignwide {
 	padding-right: 24px;
 	box-sizing: border-box;
 }
-.aligncenter {
+.aligncenter, .alignnone {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+.aligncenter {
+	text-align: center;
 }
 .alignright {
 	float: right;
@@ -2253,6 +2255,9 @@ a, button, .button, #submit, #searchsubmit {
 	padding: 36px;
 	box-sizing: border-box;
 }
+.wp-block-column .wp-block-cover .wp-block-cover__inner-container {
+	padding: 0px;
+}
 .wp-block-cover .wp-block-cover__inner-container p {
 	margin-top: 24px;
 	margin-bottom: 24px;
@@ -2296,26 +2301,26 @@ a, button, .button, #submit, #searchsubmit {
 	float: none;
 	text-align: right;
 }
-.wp-block-button.alignwide a {
+.wp-block-button.alignwide .wp-block-button__link {
 	display: block;
 }
-.wp-block-button.is-style-outline a {
+.wp-block-button.is-style-outline .wp-block-button__link {
 	background: inherit;
 	box-shadow: none;
 	text-shadow: none;
 	border-color: inherit;
 	border-width: inherit;
 }
-.wp-block-button.is-style-outline a:not(.has-text-color) {
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
 	color: inherit;
 }
-.wp-block-button.is-style-outline a:hover {
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
 	color: inherit;
 	background: inherit;
 	border-width: inherit;
 	border-color: inherit;
 }
-.has-background-dim .wp-block-button.is-style-outline a:hover {
+.has-background-dim .wp-block-button.is-style-outline .wp-block-button__link {
 	color: #ffffff;
 	border-color: #ffffff;
 }
@@ -2323,8 +2328,10 @@ a, button, .button, #submit, #searchsubmit {
 /* Quotes */
 
 .wp-block-quote.is-style-large p {
-	font-size: 160%;
+	font-size: 180%;
+	font-style: normal;
 	line-height: 1.5;
+	margin: 0px;
 }
 .wp-block-quote.is-style-large.has-text-align-center cite {
 	text-align: center;
@@ -2342,11 +2349,11 @@ a, button, .button, #submit, #searchsubmit {
 	position: relative;
 	margin: 36px 0px 24px;
 	padding: 36px;
-	border-top: 2px solid #dddddd;
-	border-bottom: 2px solid #dddddd;
-}
-.wp-block-pullquote p {
-	font-style: italic;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-color: #dddddd;
 }
 .wp-block-pullquote::before {
 	position: absolute;
@@ -2361,7 +2368,9 @@ a, button, .button, #submit, #searchsubmit {
 	line-height: 48px;
 	margin-left: -24px;
 	border-radius: 50%;
-	border: 2px solid #dddddd;
+	border-width: 2px;
+	border-style: solid;
+	border-color: inherit;
 }
 .wp-block-pullquote.is-style-solid-color {
 	padding-left: 48px;
@@ -2383,6 +2392,7 @@ a, button, .button, #submit, #searchsubmit {
 }
 .wp-block-pullquote blockquote cite,
 .wp-block-pullquote .wp-block-pullquote__citation {
+	color: inherit;
 	font-size: 90%;
 	font-style: normal;
 	text-transform: uppercase;
@@ -2392,10 +2402,8 @@ a, button, .button, #submit, #searchsubmit {
 /* Columns */
 
 .wp-block-columns {
-	margin-bottom: 0px;
 	box-sizing: border-box;
 }
-.wp-block-columns.alignwide,
 .wp-block-columns.alignfull {
 	padding-left: 36px;
 	padding-right: 36px;
@@ -2460,6 +2468,9 @@ div[class*="wp-block"] form.contact-form .contact-submit {
 }
 .wp-block-table.is-style-stripes {
 	border-bottom: none;
+}
+.wp-block-table figcaption {
+	margin-top: -24px;
 }
 .wp-block-audio {
 	margin-left: 0px;

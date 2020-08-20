@@ -1,10 +1,9 @@
 === Block Lite ===
 
-Version: 1.2.1
+Version: 1.2.2
 Contributors: organicthemes, itsdavidmorgan
 Tags: blog, portfolio, one-column, two-columns, right-sidebar, custom-background, custom-header, custom-menu, custom-logo, featured-images, featured-image-header, flexible-header, full-width-template, translation-ready, sticky-post, threaded-comments, editor-style, theme-options, footer-widgets
 Requires at least: 4.8
-Tested up to: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,9 +46,9 @@ Block Lite is distributed under the terms of the GNU GPL
 * License: GPLv2
 * Source: images/screenshot.png
 
-* Header Image, Copyright Free-Photos, https://pixabay.com/en/users/Free-Photos-242387/
-* License: Creative Commons Zero, https://pixabay.com/en/service/terms/
-* Source: Pixabay, https://pixabay.com/en/skyscraper-dark-sky-dark-1149541/
+* Header Image, Copyright Free-Photos, https://stocksnap.io/
+* License: Creative Commons Zero, https://stocksnap.io/license
+* Source: StockSnap, https://stocksnap.io/photo/fog-mountain-ZKN6UKFKEO
 
 == Font Awesome ==
 
@@ -62,6 +61,13 @@ Block Lite is distributed under the terms of the GNU GPL
 * jquery.bgBrightness.js, Released under the WTFPL license, https://organicthemes.com
 
 == Changelog ==
+
+== 1.2.2 ==
+* Gutenberg updates
+* Better handling of plugin recommendation
+* Added new required tags to stylesheet
+* Fixed escaping in header and footer
+* Updated default header image
 
 == 1.2.1 ==
 * Additional Gutenberg updates
