@@ -138,7 +138,7 @@
   .on( 'post-load', modifyPosts );
 
   $( window )
-  .load( headerSetup )
-  .resize( menuOffset );
+  .on( 'load', headerSetup )
+  .on( 'resize', menuOffset );
 
 })( jQuery );
