@@ -172,7 +172,7 @@ function block_lite_theme_customizer( $wp_customize ) {
 		// Blog Categories.
 		$wp_customize->add_setting( 'block_lite_blog_category', array(
 			'default'           => '0',
-			// 'sanitize_callback' => 'sanitize_key',
+			'sanitize_callback' => 'sanitize_key',
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'block_lite_blog_category', array(
 			'settings' => 'block_lite_blog_category',

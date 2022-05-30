@@ -52,6 +52,28 @@ if ( ! function_exists( 'block_lite_setup' ) ) :
 		add_theme_support( 'align-wide' );
 
 		/*
+		* Enable support for responsive embed blocks.
+		*/
+		add_theme_support( 'responsive-embeds' );
+
+		/*
+		* Enable support for block styles.
+		*/
+		add_theme_support( 'wp-block-styles' );
+
+		/*
+		* Enable support for HTML5 output.
+		*/
+		add_theme_support( 'html5', array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
+
+		/*
 		 * Enable support for custom logo.
 		 */
 		add_theme_support( 'custom-logo', array(
